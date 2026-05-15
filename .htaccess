@@ -1,0 +1,24 @@
+RewriteEngine On
+
+# Serve existing files/directories directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# SEO utility routes
+RewriteRule ^sitemap\.xml$ sitemap.php [L,QSA]
+
+# Error code routes
+RewriteRule ^error-codes/?$ error-codes/index.php [L,QSA]
+RewriteRule ^error-codes/([a-zA-Z0-9-]+)/?$ error-codes/index.php?brand=$1 [L,QSA]
+RewriteRule ^error-codes/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)/?$ error-codes/index.php?brand=$1&code=$2 [L,QSA]
+
+# Settings routes
+RewriteRule ^settings/?$ settings/index.php [L,QSA]
+RewriteRule ^settings/([a-zA-Z0-9-]+)/?$ settings/index.php?brand=$1 [L,QSA]
+RewriteRule ^settings/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)/?$ settings/index.php?brand=$1&code=$2 [L,QSA]
+
+# Tool pages
+RewriteRule ^app/?$ app/index.php [L,QSA]
+RewriteRule ^battery-health-calculator/?$ battery-health-calculator/index.php [L,QSA]
+RewriteRule ^motor-noise-diagnostic/?$ motor-noise-diagnostic/index.php [L,QSA]
