@@ -9,6 +9,9 @@ $urls = [
   '/settings',
   '/battery-health-calculator',
   '/motor-noise-diagnostic',
+      '/scan',
+    '/articles',
+    '/articles/battery-maintenance',
 ];
 
 foreach (array_keys($brands) as $brandSlug) {
