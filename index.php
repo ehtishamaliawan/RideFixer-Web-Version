@@ -10,6 +10,41 @@ $year = date("Y");
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RideFixer - E-Bike Repair & Diagnostics</title>
   <meta name="description" content="RideFixer helps e-bike riders diagnose error codes, check battery health, understand motor issues, track maintenance and find repair help." />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="RideFixer - E‑Bike Repair & Diagnostics" />
+  <meta property="og:description" content="RideFixer helps e‑bike riders diagnose error codes, check battery health, understand motor issues, track maintenance and find repair help." />
+  <meta property="og:url" content="https://ridefixer.app/" />
+  <!-- Use the same hero image as the background for link previews -->
+  <meta property="og:image" content="https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RideFixer - E‑Bike Repair & Diagnostics" />
+  <meta name="twitter:description" content="RideFixer helps e‑bike riders diagnose error codes, check battery health, understand motor issues, track maintenance and find repair help." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://ridefixer.app/" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["WebSite", "SoftwareApplication"],
+      "name": "RideFixer",
+      "url": "https://ridefixer.app/",
+      "description": "RideFixer helps e-bike riders diagnose error codes, check battery health, understand motor issues, track maintenance and find repair help.",
+      "image": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1200&q=80",
+      "applicationCategory": "VehicleApplication",
+      "operatingSystem": "Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+  </script>
 
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
