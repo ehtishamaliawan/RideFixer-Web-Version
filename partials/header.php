@@ -6,6 +6,10 @@ $navItems = [
   ['href' => '/settings', 'label' => 'Settings'],
   ['href' => '/battery-health-calculator', 'label' => 'Battery'],
   ['href' => '/motor-noise-diagnostic', 'label' => 'Noise'],
+      ['href' => '/scan', 'label' => 'Scan'],
+    ['href' => '/articles', 'label' => 'Articles'],
+
+  
 ];
 ?>
 <header>
