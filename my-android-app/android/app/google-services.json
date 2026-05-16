@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "557851155451",
+    "project_id": "test-project-fdf29",
+    "storage_bucket": "test-project-fdf29.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:557851155451:android:7257386ee6c13246a2095e",
+        "android_client_info": {
+          "package_name": "com.example.ride_care"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "557851155451-r7uincq7ma5jimq595t615qhcm7fmtbg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH8ugbeX5JQwSRnPXCrvjLh7mCmGlOrXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "557851155451-r7uincq7ma5jimq595t615qhcm7fmtbg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
