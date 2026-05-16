@@ -28,8 +28,8 @@ if ($brand !== '') {
 }
 
 if ($route === 'index') {
-  $pageTitle = 'E-Bike Settings Guide - RideFixer';
-  $pageDescription = 'Find P-settings and controller tuning guidance by e-bike brand and display family.';
+  $pageTitle = 'E-Bike P-Settings & Controller Guides - RideFixer';
+  $pageDescription = 'Find SW900, S866, KT LCD and brand-specific e-bike P-settings with explanations and tuning guidance.';
   $canonical = $baseUrl . '/settings';
 } elseif ($route === 'brand') {
   $pageTitle = $brands[$currentBrand] . ' E-Bike Settings Guide - RideFixer';
@@ -52,13 +52,54 @@ require __DIR__ . '/../partials/header.php';
 
 <?php if ($route === 'index'): ?>
 <section class="card">
-  <h1 style="margin:0;">E-Bike Settings by Brand</h1>
-  <p class="sub" style="margin-top:8px;">Navigate brand-specific setting pages with values and practical notes.</p>
+  <span class="eyebrow">Chinese Display Knowledge Base</span>
+  <h1 style="margin-top:14px;">SW900, S866 & E‑Bike P‑Settings</h1>
+  <p class="sub" style="margin-top:8px;">RideFixer indexes controller and display settings individually so riders can search settings like P08 speed limit, P14 current limit or P15 low voltage cutoff directly from Google.</p>
+
+  <div class="mini-grid">
+    <div class="mini"><strong>SW900</strong><span>Popular delivery-bike display</span></div>
+    <div class="mini"><strong>S866</strong><span>Generic controller ecosystem</span></div>
+    <div class="mini"><strong>KT LCD</strong><span>KT controller parameter guides</span></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Most searched settings</h2>
+  <div class="grid">
+    <a class="item" href="/settings/generic/p08">
+      <h3>P08 - Speed Limit</h3>
+      <p>One of the highest-volume Chinese display searches.</p>
+    </a>
+    <a class="item" href="/settings/generic/p14">
+      <h3>P14 - Current Limit</h3>
+      <p>Acceleration, power and controller heat balance.</p>
+    </a>
+    <a class="item" href="/settings/generic/p15">
+      <h3>P15 - Low Voltage Cutoff</h3>
+      <p>Battery protection and discharge threshold.</p>
+    </a>
+    <a class="item" href="/settings/generic/p06">
+      <h3>P06 - Wheel Size</h3>
+      <p>Fix incorrect speed and odometer readings.</p>
+    </a>
+    <a class="item" href="/settings/generic/p11">
+      <h3>P11 - PAS Sensitivity</h3>
+      <p>Control pedal assist responsiveness.</p>
+    </a>
+    <a class="item" href="/settings/generic/p12">
+      <h3>P12 - PAS Start Strength</h3>
+      <p>Smooth versus aggressive motor startup.</p>
+    </a>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Browse settings by system</h2>
   <div class="grid">
     <?php foreach ($brands as $slug => $label): ?>
       <a class="item" href="/settings/<?php echo e($slug); ?>">
-        <h3><?php echo e($label); ?> Settings</h3>
-        <p><?php echo count($settingsCatalog[$slug] ?? []); ?> page(s) available.</p>
+        <h3><?php echo e($label); ?></h3>
+        <p><?php echo count($settingsCatalog[$slug] ?? []); ?> indexable setting page(s).</p>
       </a>
     <?php endforeach; ?>
   </div>
@@ -66,8 +107,9 @@ require __DIR__ . '/../partials/header.php';
 
 <?php elseif ($route === 'brand'): ?>
 <section class="card">
-  <h1 style="margin:0;"><?php echo e($brands[$currentBrand]); ?> Settings Guide</h1>
-  <p class="sub" style="margin-top:8px;">Open each setting page for details, values, and tuning notes.</p>
+  <span class="eyebrow">Controller & Display Settings</span>
+  <h1 style="margin-top:14px;"><?php echo e($brands[$currentBrand]); ?> Settings Guide</h1>
+  <p class="sub" style="margin-top:8px;">Open each setting page for values, tuning notes and practical real-world explanations.</p>
   <div class="list">
     <?php foreach ($settingsCatalog[$currentBrand] as $itemCode => $entry): ?>
       <a class="row" href="/settings/<?php echo e($currentBrand); ?>/<?php echo e($itemCode); ?>">
@@ -81,25 +123,27 @@ require __DIR__ . '/../partials/header.php';
 <?php elseif ($route === 'detail'): ?>
 <section class="split">
   <article class="card">
-    <h1 style="margin:0;"><?php echo e($brands[$currentBrand]); ?> <?php echo strtoupper(e($currentCode)); ?> - <?php echo e($entry['title']); ?></h1>
+    <span class="eyebrow"><?php echo e($brands[$currentBrand]); ?> Setting</span>
+    <h1 style="margin-top:14px;"><?php echo strtoupper(e($currentCode)); ?> - <?php echo e($entry['title']); ?></h1>
     <p class="sub" style="margin-top:8px;"><?php echo e($entry['summary']); ?></p>
 
-    <h3 style="margin:16px 0 6px;">What it does</h3>
+    <h3 style="margin:20px 0 8px;">What this setting controls</h3>
     <p class="sub"><?php echo e($entry['details']); ?></p>
 
-    <h3 style="margin:16px 0 6px;">Values</h3>
+    <h3 style="margin:20px 0 8px;">Typical values</h3>
     <ul><?php foreach ($entry['values'] as $item): ?><li><?php echo e($item); ?></li><?php endforeach; ?></ul>
 
-    <h3 style="margin:16px 0 6px;">Notes</h3>
+    <h3 style="margin:20px 0 8px;">Practical notes</h3>
     <ul><?php foreach ($entry['notes'] as $item): ?><li><?php echo e($item); ?></li><?php endforeach; ?></ul>
   </article>
 
   <aside class="card">
-    <h2 style="margin-top:0;">Related Paths</h2>
+    <h2 style="margin-top:0;">Related guides</h2>
     <div class="list">
-      <a class="row" href="/settings/<?php echo e($currentBrand); ?>">View all <?php echo e($brands[$currentBrand]); ?> settings</a>
-      <a class="row" href="/error-codes/<?php echo e($currentBrand); ?>">Check <?php echo e($brands[$currentBrand]); ?> error codes</a>
-      <a class="row" href="https://shop.ridefixer.app" target="_blank" rel="noopener">Open RideFixer Shop</a>
+      <a class="row" href="/settings/<?php echo e($currentBrand); ?>">All <?php echo e($brands[$currentBrand]); ?> settings</a>
+      <a class="row" href="/error-codes/<?php echo e($currentBrand); ?>">Related error codes</a>
+      <a class="row" href="/scan">Scan display for errors</a>
+      <a class="row" href="/motor-noise-diagnostic">Motor sound diagnostics</a>
     </div>
   </aside>
 </section>
