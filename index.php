@@ -4,6 +4,20 @@ $pageTitle = 'RideFixer - Smart E-Bike Diagnostics Platform';
 $pageDescription = 'RideFixer is an intelligent e-bike diagnostics platform with AI-assisted display recognition, error-code troubleshooting, repair guidance and battery analysis.';
 $canonical = $baseUrl . '/';
 
+$diagnosticSuggestions = [
+  ['href' => '/error-codes/generic', 'title' => 'Generic display error', 'text' => 'Choose your display model first, then open the matching diagnostic flow.'],
+  ['href' => '/displays/sw900', 'title' => 'SW900 diagnostics', 'text' => 'Smart troubleshooting and parameter guidance for SW900-style displays.'],
+  ['href' => '/displays/s866', 'title' => 'S866 diagnostics', 'text' => 'Model-specific diagnostics and controller troubleshooting workflows.'],
+  ['href' => '/displays/gd01', 'title' => 'GD01 display help', 'text' => 'Error-code and setting guidance for GD01 display families.'],
+  ['href' => '/displays/ukc1', 'title' => 'UKC1 display help', 'text' => 'Troubleshooting flow for common UKC1 and UKC-1 style displays.'],
+  ['href' => '/error-codes/bafang/30', 'title' => 'Bafang Error 30', 'text' => 'Communication and wiring diagnostics for Bafang systems.'],
+  ['href' => '/motor-noise-diagnostic', 'title' => 'Motor or wheel noise', 'text' => 'Use acoustic comparison guidance to identify likely causes.'],
+  ['href' => '/battery-health-calculator', 'title' => 'Weak battery or low range', 'text' => 'Estimate battery health and identify possible degradation patterns.'],
+  ['href' => '/settings', 'title' => 'Controller setting issue', 'text' => 'Select your display model before adjusting P-settings.'],
+];
+shuffle($diagnosticSuggestions);
+$diagnosticSuggestions = array_slice($diagnosticSuggestions, 0, 6);
+
 require __DIR__ . '/partials/head.php';
 ?>
 <script type="application/ld+json">
@@ -63,14 +77,12 @@ require __DIR__ . '/partials/head.php';
 </section>
 
 <section class="card">
-  <h2>Common rider diagnostics</h2>
+  <h2>Suggested diagnostics today</h2>
+  <p class="sub">RideFixer rotates useful starting points so returning riders can discover more repair paths.</p>
   <div class="grid">
-    <a class="item" href="/error-codes/generic"><h3>Generic display error</h3><p>Choose your display model first, then open the matching diagnostic flow.</p></a>
-    <a class="item" href="/displays/sw900"><h3>SW900 diagnostics</h3><p>Smart troubleshooting and parameter guidance for SW900-style displays.</p></a>
-    <a class="item" href="/displays/s866"><h3>S866 diagnostics</h3><p>Model-specific diagnostics and controller troubleshooting workflows.</p></a>
-    <a class="item" href="/error-codes/bafang/30"><h3>Bafang Error 30</h3><p>Communication and wiring diagnostics for Bafang systems.</p></a>
-    <a class="item" href="/motor-noise-diagnostic"><h3>Motor or wheel noise</h3><p>Use acoustic comparison guidance to identify likely causes.</p></a>
-    <a class="item" href="/battery-health-calculator"><h3>Weak battery or low range</h3><p>Estimate battery health and identify possible degradation patterns.</p></a>
+    <?php foreach ($diagnosticSuggestions as $item): ?>
+      <a class="item" href="<?php echo e($item['href']); ?>"><h3><?php echo e($item['title']); ?></h3><p><?php echo e($item['text']); ?></p></a>
+    <?php endforeach; ?>
   </div>
 </section>
 
