@@ -29,11 +29,13 @@ if ($selectedBrand !== '') {
 
 if ($route === 'detail') {
   $pageTitle = $brands[$currentBrand] . ' ' . strtoupper($currentCode) . ' Error Code - ' . $currentEntry['title'] . ' | RideFixer';
-  $pageDescription = $currentEntry['description'] . ' Causes, symptoms, fixes, rideability and urgency.';
+  $pageDescription = $currentEntry['description'] . ' Causes, symptoms and fixes.';
   $canonical = $baseUrl . '/error-codes/' . $currentBrand . '/' . $currentCode;
 } elseif ($route === 'brand') {
   $pageTitle = $brands[$currentBrand] . ' E-Bike Error Codes | RideFixer';
-  $pageDescription = 'Browse ' . $brands[$currentBrand] . ' e-bike error codes with causes, symptoms and fixes.';
+  $pageDescription = $currentBrand === 'generic'
+    ? 'Choose your Chinese e-bike display model first, then open the matching error codes.'
+    : 'Browse ' . $brands[$currentBrand] . ' e-bike error codes with causes, symptoms and fixes.';
   $canonical = $baseUrl . '/error-codes/' . $currentBrand;
 } elseif ($route === '404') {
   $pageTitle = 'Error Code Not Found | RideFixer';
@@ -93,8 +95,13 @@ require __DIR__ . '/../partials/header.php';
   <aside class="card">
     <h2 style="margin-top:0;">Related pages</h2>
     <div class="list">
-      <a class="row" href="/error-codes/<?php echo e($currentBrand); ?>">All <?php echo e($brands[$currentBrand]); ?> error codes</a>
-      <a class="row" href="/settings/<?php echo e($currentBrand); ?>"><?php echo e($brands[$currentBrand]); ?> settings guide</a>
+      <?php if ($currentBrand === 'generic'): ?>
+        <a class="row" href="/error-codes/generic">Choose display model</a>
+        <a class="row" href="/displays/sw900/error-codes/<?php echo e($currentCode); ?>">SW900 version of this code</a>
+        <a class="row" href="/displays/s866/error-codes/<?php echo e($currentCode); ?>">S866 version of this code</a>
+      <?php else: ?>
+        <a class="row" href="/error-codes/<?php echo e($currentBrand); ?>">All <?php echo e($brands[$currentBrand]); ?> error codes</a>
+      <?php endif; ?>
       <a class="row" href="/battery-health-calculator">Battery health calculator</a>
       <a class="row" href="/scan">Scan another display image</a>
     </div>
@@ -108,11 +115,39 @@ require __DIR__ . '/../partials/header.php';
   <div class="cta-row"><a class="btn btn-brand" href="/error-codes">Open Error Code Search</a></div>
 </section>
 
+<?php elseif ($route === 'brand' && $currentBrand === 'generic'): ?>
+<section class="card">
+  <span class="eyebrow">Chinese / Generic Controllers</span>
+  <h1 style="margin-top:14px;">Choose Your Display Model</h1>
+  <p class="sub">For generic Chinese e-bikes, error codes depend on the display and controller family. Select your display model first, then open its error codes.</p>
+</section>
+
+<section class="card">
+  <h2>Display models</h2>
+  <div class="grid">
+    <?php foreach ($displayCatalog as $slug => $display): ?>
+      <a class="item" href="/displays/<?php echo e($slug); ?>/error-codes">
+        <h3><?php echo e($display['name']); ?></h3>
+        <p><?php echo count($display['errors']); ?> common error codes for this display family.</p>
+      </a>
+    <?php endforeach; ?>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Not sure which display you have?</h2>
+  <div class="grid">
+    <a class="item" href="/displays"><h3>Browse all display models</h3><p>Compare SW900, S866, KT-LCD3, KD21C and M5/M6 style displays.</p></a>
+    <a class="item" href="/scan"><h3>Scan display error</h3><p>Upload a display photo and search possible matching codes.</p></a>
+    <a class="item" href="/settings"><h3>Open P-settings</h3><p>Choose display model before changing controller settings.</p></a>
+  </div>
+</section>
+
 <?php else: ?>
 <section class="card">
-  <span class="eyebrow">Searchable diagnostic database</span>
+  <span class="eyebrow">Diagnostic Database</span>
   <h1 style="margin-top:14px;">🔍 Error Code Search</h1>
-  <p class="sub">Every brand and every error code has its own indexable SEO page for organic traffic.</p>
+  <p class="sub">Search by brand, code, symptom, display model or controller issue.</p>
 
   <form class="search-box" action="/error-codes" method="get" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;">
     <?php if ($route === 'brand'): ?><input type="hidden" name="brand" value="<?php echo e($currentBrand); ?>"><?php endif; ?>
@@ -123,12 +158,12 @@ require __DIR__ . '/../partials/header.php';
 </section>
 
 <section class="card">
-  <h2>Select a brand</h2>
+  <h2>Select a system</h2>
   <div class="grid">
     <?php foreach ($errorCatalog as $slug => $codes): ?>
       <a class="item" href="/error-codes/<?php echo e($slug); ?>">
         <h3><?php echo e($brands[$slug] ?? ucfirst($slug)); ?></h3>
-        <p><?php echo count($codes); ?> indexable error code page(s).</p>
+        <p><?php echo $slug === 'generic' ? 'Choose display model first.' : count($codes) . ' error code page(s).'; ?></p>
       </a>
     <?php endforeach; ?>
   </div>
