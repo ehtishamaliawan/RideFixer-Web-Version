@@ -53,7 +53,7 @@ require __DIR__ . '/../partials/header.php';
 <section class="card">
   <span class="eyebrow">Authentic Sound Diagnostics</span>
   <h1 style="margin-top:14px;">Motor & Bike Noise Diagnostic</h1>
-  <p class="sub">Compare your e-bike noise with real RideFixer sound samples from the repository. These are authentic files from the <code>/sounds</code> folder, not generated tones.</p>
+  <p class="sub">Compare your e-bike noise with real RideFixer sound samples collected from real repair cases and component issues.</p>
 </section>
 
 <section class="card">
@@ -74,7 +74,6 @@ require __DIR__ . '/../partials/header.php';
             <source src="<?php echo e($profile['audio']); ?>" type="audio/x-m4a">
             Your browser does not support audio playback.
           </audio>
-          <p class="sub" style="font-size:.86rem;">Source: <?php echo e($profile['audio']); ?></p>
         </div>
 
         <h4 style="margin:16px 0 6px;">Symptoms</h4>
@@ -115,12 +114,12 @@ require __DIR__ . '/../partials/header.php';
   </article>
 
   <aside class="card">
-    <h2 style="margin-top:0;">Why this matters</h2>
-    <p class="sub">Many e-bike problems are easier to recognise by sound than by text. Real examples help riders compare their issue before visiting a shop.</p>
+    <h2 style="margin-top:0;">Built for real riders</h2>
+    <p class="sub">Many e-bike problems are easier to recognise by sound than by text. These examples help riders compare issues before replacing parts or visiting a repair shop.</p>
     <div class="mini-grid">
-      <div class="mini"><strong>4</strong><span>Real sound files</span></div>
-      <div class="mini"><strong>M4A</strong><span>Authentic samples</span></div>
-      <div class="mini"><strong>SEO</strong><span>Noise search intent</span></div>
+      <div class="mini"><strong>4</strong><span>Real sound recordings</span></div>
+      <div class="mini"><strong>RideFixer</strong><span>Practical repair guidance</span></div>
+      <div class="mini"><strong>Authentic</strong><span>Real component issues</span></div>
     </div>
   </aside>
 </section>
