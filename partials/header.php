@@ -2,7 +2,7 @@
 $currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 $navItems = [
   ['href' => '/', 'label' => 'Home'],
-  ['href' => '/app', 'label' => 'Web App'],
+  ['href' => '/app', 'label' => 'My Garage'],
   ['href' => '/error-codes', 'label' => 'Error Codes'],
   ['href' => '/settings', 'label' => 'Settings'],
   ['href' => '/battery-health-calculator', 'label' => 'Battery'],
