@@ -10,6 +10,8 @@ $brands = $catalog['brands'];
 $brandAliases = $catalog['brandAliases'];
 $errorCatalog = $catalog['errorCatalog'];
 $settingsCatalog = $catalog['settingsCatalog'];
+$displayCatalogPath = __DIR__ . '/../config/displays.php';
+$displayCatalog = file_exists($displayCatalogPath) ? require $displayCatalogPath : [];
 
 function e(string $value): string {
   return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
