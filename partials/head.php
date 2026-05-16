@@ -1,8 +1,9 @@
 <?php
 if (!isset($pageTitle)) $pageTitle = 'RideFixer';
-if (!isset($pageDescription)) $pageDescription = 'RideFixer web app for e-bike diagnostics, error codes, Chinese display P-settings, battery health and maintenance.';
+if (!isset($pageDescription)) $pageDescription = 'RideFixer helps e-bike riders diagnose error codes, scan display faults, compare real repair sounds, check battery health and understand controller settings.';
 if (!isset($canonical)) $canonical = $baseUrl . '/';
-$ogImage = $baseUrl . '/assets/img/ridefixer-og.png';
+$appIcon = $baseUrl . '/my-android-app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png';
+$ogImage = $appIcon;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,9 +12,13 @@ $ogImage = $baseUrl . '/assets/img/ridefixer-og.png';
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title><?php echo e($pageTitle); ?></title>
   <meta name="description" content="<?php echo e($pageDescription); ?>" />
-  <meta name="keywords" content="RideFixer, e-bike error codes, SW900 settings, S866 settings, KT LCD settings, Bafang error codes, Shimano STEPS error codes, Bosch e-bike error codes, e-bike battery calculator, e-bike diagnostics" />
+  <meta name="keywords" content="RideFixer, e-bike diagnostics, e-bike error codes, e-bike display errors, e-bike repair guide, SW900, S866, GD01, GD02, S830, KT LCD3, UKC1, Bafang error codes, Shimano STEPS error codes, Bosch e-bike error codes, e-bike battery health, motor noise diagnostic" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#06101d" />
+  <meta name="application-name" content="RideFixer" />
+  <meta name="apple-mobile-web-app-title" content="RideFixer" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta property="og:site_name" content="RideFixer" />
   <meta property="og:title" content="<?php echo e($pageTitle); ?>" />
   <meta property="og:description" content="<?php echo e($pageDescription); ?>" />
@@ -25,6 +30,8 @@ $ogImage = $baseUrl . '/assets/img/ridefixer-og.png';
   <meta name="twitter:description" content="<?php echo e($pageDescription); ?>" />
   <meta name="twitter:image" content="<?php echo e($ogImage); ?>" />
   <link rel="canonical" href="<?php echo e($canonical); ?>" />
+  <link rel="icon" href="<?php echo e($appIcon); ?>" type="image/png" />
+  <link rel="apple-touch-icon" href="<?php echo e($appIcon); ?>" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,7 +43,7 @@ $ogImage = $baseUrl . '/assets/img/ridefixer-og.png';
     "@type": "WebSite",
     "name": "RideFixer",
     "url": "<?php echo e($baseUrl . '/'); ?>",
-    "description": "RideFixer helps e-bike riders diagnose error codes, battery issues, motor noises and Chinese display P-settings.",
+    "description": "RideFixer helps e-bike riders diagnose error codes, display faults, battery issues, motor noises and controller settings.",
     "potentialAction": {
       "@type": "SearchAction",
       "target": "<?php echo e($baseUrl); ?>/error-codes?search={search_term_string}",
