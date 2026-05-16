@@ -1,69 +1,49 @@
 <?php
 require __DIR__ . '/../lib/bootstrap.php';
 $pageTitle = 'Motor Noise Diagnostic - RideFixer';
-$pageDescription = 'Compare authentic e-bike motor sound samples with likely repair causes and fixes.';
+$pageDescription = 'Compare authentic RideFixer e-bike repair sound samples for motor gears, derailleur adjustment, loose spokes and disc brake rubbing.';
 $canonical = $baseUrl . '/motor-noise-diagnostic';
 
 $noiseProfiles = [
   [
-    'slug' => 'grinding-under-load',
-    'title' => 'Grinding Under Load',
-    'type' => 'Mechanical',
+    'slug' => 'motor-gears-finish-noise',
+    'title' => 'Motor Gear Finish / Grinding Noise',
+    'type' => 'Motor / Gearbox',
     'severity' => 'High',
-    'audio' => ['/sounds/grinding-under-load.mp3', '/sounds/grinding.mp3', '/sounds/motor-grinding.mp3', '/sounds/grinding_under_load.mp3'],
-    'symptoms' => ['Grinding while accelerating', 'Noise increases on hills', 'Motor feels rough'],
-    'causes' => ['Worn nylon gears', 'Damaged planetary gears', 'Low lubrication'],
-    'fix' => ['Inspect internal gears', 'Regrease gearbox', 'Replace worn gears'],
+    'audio' => '/sounds/motor_gears_finish_noise.m4a',
+    'symptoms' => ['Grinding or rough motor gear sound', 'Noise increases when the motor is under load', 'Motor feels less smooth than normal'],
+    'causes' => ['Worn internal motor gears', 'Dry or damaged gearbox', 'Hub motor internal wear', 'Motor cover or bearing issue'],
+    'fix' => ['Stop heavy riding until inspected', 'Check hub motor for play or roughness', 'Inspect internal nylon/planetary gears if serviceable', 'Replace worn gears or motor assembly if needed'],
   ],
   [
-    'slug' => 'high-pitched-whine',
-    'title' => 'High Pitched Whine',
-    'type' => 'Electrical',
+    'slug' => 'derailleur-adjustment-noise',
+    'title' => 'Derailleur Adjustment Noise',
+    'type' => 'Drivetrain',
     'severity' => 'Medium',
-    'audio' => ['/sounds/high-pitched-whine.mp3', '/sounds/whine.mp3', '/sounds/controller-whine.mp3', '/sounds/high_pitched_whine.mp3'],
-    'symptoms' => ['Sharp electronic whine', 'Noise changes with assist level'],
-    'causes' => ['PWM switching noise', 'Controller stress', 'Motor resonance'],
-    'fix' => ['Reduce current limit', 'Inspect controller heat', 'Check motor alignment'],
+    'audio' => '/sounds/derailleur_adjustment_noise.m4a',
+    'symptoms' => ['Clicking while pedalling', 'Chain jumps or rubs between gears', 'Noise changes when shifting'],
+    'causes' => ['Derailleur indexing out of adjustment', 'Bent derailleur hanger', 'Cable tension incorrect', 'Worn chain or cassette'],
+    'fix' => ['Re-index derailleur gears', 'Check hanger alignment', 'Adjust cable tension barrel adjuster', 'Inspect chain and cassette wear'],
   ],
   [
-    'slug' => 'clicking-pedal-assist',
-    'title' => 'Clicking During Pedal Assist',
-    'type' => 'Sensor / Drivetrain',
-    'severity' => 'Medium',
-    'audio' => ['/sounds/clicking-pedal-assist.mp3', '/sounds/clicking.mp3', '/sounds/pedal-clicking.mp3', '/sounds/clicking_pedal_assist.mp3'],
-    'symptoms' => ['Click every pedal rotation', 'Noise only with PAS active'],
-    'causes' => ['Loose chainring', 'PAS sensor movement', 'Derailleur indexing'],
-    'fix' => ['Tighten chainring', 'Check PAS ring', 'Adjust derailleur'],
-  ],
-  [
-    'slug' => 'motor-judder',
-    'title' => 'Motor Judder / Stutter',
-    'type' => 'Hall Sensor',
-    'severity' => 'High',
-    'audio' => ['/sounds/motor-judder.mp3', '/sounds/judder.mp3', '/sounds/motor-stutter.mp3', '/sounds/motor_judder.mp3'],
-    'symptoms' => ['Motor shakes', 'Wheel vibrates instead of spinning'],
-    'causes' => ['Hall sensor fault', 'Phase wire issue', 'Controller timing problem'],
-    'fix' => ['Inspect hall wiring', 'Check phase connectors', 'Test controller'],
-  ],
-  [
-    'slug' => 'rotor-rub',
-    'title' => 'Brake Rotor Rub',
-    'type' => 'Brake',
-    'severity' => 'Low',
-    'audio' => ['/sounds/rotor-rub.mp3', '/sounds/brake-rotor-rub.mp3', '/sounds/disc-rub.mp3', '/sounds/rotor_rub.mp3'],
-    'symptoms' => ['Scraping every wheel rotation', 'Noise while coasting'],
-    'causes' => ['Bent rotor', 'Caliper misalignment', 'Loose axle'],
-    'fix' => ['Center caliper', 'True rotor', 'Check wheel seating'],
-  ],
-  [
-    'slug' => 'spoke-creak',
-    'title' => 'Spoke Ping / Creak',
+    'slug' => 'spoke-loose-noise',
+    'title' => 'Loose Spoke Noise',
     'type' => 'Wheel',
     'severity' => 'Medium',
-    'audio' => ['/sounds/spoke-creak.mp3', '/sounds/spoke-ping.mp3', '/sounds/wheel-creak.mp3', '/sounds/spoke_creak.mp3'],
-    'symptoms' => ['Pinging while accelerating', 'Creak under load'],
-    'causes' => ['Loose spokes', 'Uneven spoke tension', 'Cracked nipple seat'],
-    'fix' => ['Tension wheel', 'Inspect rim holes', 'Replace damaged spokes'],
+    'audio' => '/sounds/spoke_loose_noise.m4a',
+    'symptoms' => ['Ping, creak or ticking from wheel', 'Noise appears under rider weight or acceleration', 'Wheel may feel slightly unstable'],
+    'causes' => ['Loose spoke tension', 'Uneven wheel tension', 'Damaged spoke nipple', 'Rim stress around spoke holes'],
+    'fix' => ['Check spoke tension by hand', 'True and tension the wheel', 'Replace damaged spoke/nipple', 'Avoid riding hard if several spokes are loose'],
+  ],
+  [
+    'slug' => 'touching-disk-noise',
+    'title' => 'Touching Disc / Rotor Rub Noise',
+    'type' => 'Brake',
+    'severity' => 'Low',
+    'audio' => '/sounds/touching_disk_noise.m4a',
+    'symptoms' => ['Scraping sound every wheel rotation', 'Noise while coasting', 'Disc rotor touches brake pad'],
+    'causes' => ['Brake caliper not centered', 'Bent disc rotor', 'Wheel not seated correctly', 'Loose axle or hub play'],
+    'fix' => ['Re-center brake caliper', 'Check rotor for wobble', 'Make sure wheel is seated correctly', 'True or replace bent rotor'],
   ],
 ];
 
@@ -72,15 +52,15 @@ require __DIR__ . '/../partials/header.php';
 ?>
 <section class="card">
   <span class="eyebrow">Authentic Sound Diagnostics</span>
-  <h1 style="margin-top:14px;">Motor Noise Diagnostic</h1>
-  <p class="sub">Compare your e-bike sound with authentic files from RideFixer’s <code>/sounds</code> folder. No generated or fake audio is used.</p>
+  <h1 style="margin-top:14px;">Motor & Bike Noise Diagnostic</h1>
+  <p class="sub">Compare your e-bike noise with real RideFixer sound samples from the repository. These are authentic files from the <code>/sounds</code> folder, not generated tones.</p>
 </section>
 
 <section class="card">
-  <h2>Common noise profiles</h2>
+  <h2>Real sound samples</h2>
   <div class="grid">
     <?php foreach ($noiseProfiles as $profile): ?>
-      <article class="item sound-card" data-audio='<?php echo e(json_encode($profile['audio'])); ?>'>
+      <article class="item sound-card">
         <div class="row-top">
           <span class="badge"><?php echo e($profile['type']); ?></span>
           <span class="badge <?php echo e(strtolower($profile['severity'])); ?>"><?php echo e($profile['severity']); ?></span>
@@ -88,9 +68,21 @@ require __DIR__ . '/../partials/header.php';
         <h3><?php echo e($profile['title']); ?></h3>
         <p><?php echo e($profile['symptoms'][0]); ?></p>
 
-        <div class="audio-slot" style="margin-top:14px;">
-          <p class="sub">Checking authentic sound file...</p>
+        <div style="margin-top:14px;">
+          <audio controls preload="metadata" style="width:100%;">
+            <source src="<?php echo e($profile['audio']); ?>" type="audio/mp4">
+            <source src="<?php echo e($profile['audio']); ?>" type="audio/x-m4a">
+            Your browser does not support audio playback.
+          </audio>
+          <p class="sub" style="font-size:.86rem;">Source: <?php echo e($profile['audio']); ?></p>
         </div>
+
+        <h4 style="margin:16px 0 6px;">Symptoms</h4>
+        <ul>
+          <?php foreach ($profile['symptoms'] as $symptom): ?>
+            <li><?php echo e($symptom); ?></li>
+          <?php endforeach; ?>
+        </ul>
 
         <h4 style="margin:16px 0 6px;">Possible causes</h4>
         <ul>
@@ -115,6 +107,7 @@ require __DIR__ . '/../partials/header.php';
     <h2 style="margin-top:0;">Related diagnostic tools</h2>
     <div class="list">
       <a class="row" href="/error-codes/generic/e07">Hall sensor error diagnosis</a>
+      <a class="row" href="/error-codes/generic/e30">Display/controller communication error</a>
       <a class="row" href="/settings/generic/p14">Controller current limit tuning</a>
       <a class="row" href="/scan">Scan display for controller errors</a>
       <a class="row" href="/battery-health-calculator">Battery health check</a>
@@ -122,45 +115,14 @@ require __DIR__ . '/../partials/header.php';
   </article>
 
   <aside class="card">
-    <h2 style="margin-top:0;">Audio policy</h2>
-    <p class="sub">RideFixer now only uses real audio files from the repository. If a card says the sound file is missing, the filename needs to be matched to the real file in <code>/sounds</code>.</p>
+    <h2 style="margin-top:0;">Why this matters</h2>
+    <p class="sub">Many e-bike problems are easier to recognise by sound than by text. Real examples help riders compare their issue before visiting a shop.</p>
     <div class="mini-grid">
-      <div class="mini"><strong>Real</strong><span>No synthetic tones</span></div>
-      <div class="mini"><strong>/sounds</strong><span>Repo audio source</span></div>
-      <div class="mini"><strong>SEO</strong><span>Noise intent pages next</span></div>
+      <div class="mini"><strong>4</strong><span>Real sound files</span></div>
+      <div class="mini"><strong>M4A</strong><span>Authentic samples</span></div>
+      <div class="mini"><strong>SEO</strong><span>Noise search intent</span></div>
     </div>
   </aside>
 </section>
-
-<script>
-function testAudioPath(path) {
-  return new Promise(resolve => {
-    const audio = new Audio();
-    audio.preload = 'metadata';
-    audio.oncanplaythrough = () => resolve(path);
-    audio.onerror = () => resolve(null);
-    audio.src = path;
-  });
-}
-
-async function findFirstAudio(paths) {
-  for (const path of paths) {
-    const ok = await testAudioPath(path);
-    if (ok) return ok;
-  }
-  return null;
-}
-
-document.querySelectorAll('.sound-card').forEach(async card => {
-  const slot = card.querySelector('.audio-slot');
-  const paths = JSON.parse(card.dataset.audio || '[]');
-  const audioPath = await findFirstAudio(paths);
-  if (!audioPath) {
-    slot.innerHTML = '<div class="row" style="box-shadow:none;"><strong>Authentic sound file not found</strong><p class="sub">Expected one of: ' + paths.map(p => p.replace('/sounds/', '')).join(', ') + '</p></div>';
-    return;
-  }
-  slot.innerHTML = '<audio controls preload="metadata" style="width:100%;"><source src="' + audioPath + '" type="audio/mpeg">Your browser does not support audio playback.</audio><p class="sub">Source: ' + audioPath + '</p>';
-});
-</script>
 
 <?php require __DIR__ . '/../partials/footer.php';
