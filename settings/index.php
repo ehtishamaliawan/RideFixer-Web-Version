@@ -4,6 +4,19 @@ require __DIR__ . '/../lib/bootstrap.php';
 $brand = isset($_GET['brand']) ? normalizeBrand($_GET['brand'], $brandAliases) : '';
 $code = isset($_GET['code']) ? strtolower(trim($_GET['code'])) : '';
 
+$featuredSettings = [
+  ['href'=>'/settings/generic/p08','title'=>'P08 - Speed Limit','text'=>'Adjust assisted speed limits for controller systems.'],
+  ['href'=>'/settings/generic/p14','title'=>'P14 - Current Limit','text'=>'Balance acceleration, torque and controller heat.'],
+  ['href'=>'/settings/generic/p15','title'=>'P15 - Low Voltage Cutoff','text'=>'Battery protection and discharge threshold guidance.'],
+  ['href'=>'/settings/generic/p06','title'=>'P06 - Wheel Size','text'=>'Fix incorrect speed and odometer readings.'],
+  ['href'=>'/settings/generic/p11','title'=>'P11 - PAS Sensitivity','text'=>'Control pedal assist responsiveness.'],
+  ['href'=>'/settings/generic/p12','title'=>'P12 - PAS Start Strength','text'=>'Tune smooth versus aggressive startup behavior.'],
+  ['href'=>'/settings/generic/p03','title'=>'P03 - Voltage Setting','text'=>'Match controller voltage to your battery system.'],
+  ['href'=>'/settings/generic/p04','title'=>'P04 - Sleep Timer','text'=>'Adjust auto shutdown timing and standby behavior.'],
+];
+shuffle($featuredSettings);
+$featuredSettings = array_slice($featuredSettings,0,6);
+
 $route = 'index';
 $currentBrand = null;
 $currentCode = null;
@@ -55,41 +68,18 @@ require __DIR__ . '/../partials/header.php';
   <span class="eyebrow">Chinese Display Knowledge Base</span>
   <h1 style="margin-top:14px;">SW900, S866 & E‑Bike P‑Settings</h1>
   <p class="sub" style="margin-top:8px;">RideFixer indexes controller and display settings individually so riders can search settings like P08 speed limit, P14 current limit or P15 low voltage cutoff directly from Google.</p>
-
-  <div class="mini-grid">
-    <div class="mini"><strong>SW900</strong><span>Popular delivery-bike display</span></div>
-    <div class="mini"><strong>S866</strong><span>Generic controller ecosystem</span></div>
-    <div class="mini"><strong>KT LCD</strong><span>KT controller parameter guides</span></div>
-  </div>
 </section>
 
 <section class="card">
-  <h2>Most searched settings</h2>
+  <h2>Suggested settings today</h2>
+  <p class="sub">RideFixer rotates commonly explored controller settings and tuning references.</p>
   <div class="grid">
-    <a class="item" href="/settings/generic/p08">
-      <h3>P08 - Speed Limit</h3>
-      <p>One of the highest-volume Chinese display searches.</p>
-    </a>
-    <a class="item" href="/settings/generic/p14">
-      <h3>P14 - Current Limit</h3>
-      <p>Acceleration, power and controller heat balance.</p>
-    </a>
-    <a class="item" href="/settings/generic/p15">
-      <h3>P15 - Low Voltage Cutoff</h3>
-      <p>Battery protection and discharge threshold.</p>
-    </a>
-    <a class="item" href="/settings/generic/p06">
-      <h3>P06 - Wheel Size</h3>
-      <p>Fix incorrect speed and odometer readings.</p>
-    </a>
-    <a class="item" href="/settings/generic/p11">
-      <h3>P11 - PAS Sensitivity</h3>
-      <p>Control pedal assist responsiveness.</p>
-    </a>
-    <a class="item" href="/settings/generic/p12">
-      <h3>P12 - PAS Start Strength</h3>
-      <p>Smooth versus aggressive motor startup.</p>
-    </a>
+    <?php foreach ($featuredSettings as $setting): ?>
+      <a class="item" href="<?php echo e($setting['href']); ?>">
+        <h3><?php echo e($setting['title']); ?></h3>
+        <p><?php echo e($setting['text']); ?></p>
+      </a>
+    <?php endforeach; ?>
   </div>
 </section>
 
@@ -126,15 +116,6 @@ require __DIR__ . '/../partials/header.php';
     <span class="eyebrow"><?php echo e($brands[$currentBrand]); ?> Setting</span>
     <h1 style="margin-top:14px;"><?php echo strtoupper(e($currentCode)); ?> - <?php echo e($entry['title']); ?></h1>
     <p class="sub" style="margin-top:8px;"><?php echo e($entry['summary']); ?></p>
-
-    <h3 style="margin:20px 0 8px;">What this setting controls</h3>
-    <p class="sub"><?php echo e($entry['details']); ?></p>
-
-    <h3 style="margin:20px 0 8px;">Typical values</h3>
-    <ul><?php foreach ($entry['values'] as $item): ?><li><?php echo e($item); ?></li><?php endforeach; ?></ul>
-
-    <h3 style="margin:20px 0 8px;">Practical notes</h3>
-    <ul><?php foreach ($entry['notes'] as $item): ?><li><?php echo e($item); ?></li><?php endforeach; ?></ul>
   </article>
 
   <aside class="card">
@@ -143,7 +124,6 @@ require __DIR__ . '/../partials/header.php';
       <a class="row" href="/settings/<?php echo e($currentBrand); ?>">All <?php echo e($brands[$currentBrand]); ?> settings</a>
       <a class="row" href="/error-codes/<?php echo e($currentBrand); ?>">Related error codes</a>
       <a class="row" href="/scan">Scan display for errors</a>
-      <a class="row" href="/motor-noise-diagnostic">Motor sound diagnostics</a>
     </div>
   </aside>
 </section>
@@ -151,7 +131,6 @@ require __DIR__ . '/../partials/header.php';
 <?php else: ?>
 <section class="card">
   <h1 style="margin:0;">Settings page not found</h1>
-  <p class="sub" style="margin-top:8px;">Try browsing from the settings index below.</p>
   <div class="cta-row"><a class="btn btn-brand" href="/settings">Open Settings Index</a></div>
 </section>
 <?php endif; ?>
