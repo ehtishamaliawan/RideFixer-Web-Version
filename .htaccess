@@ -8,6 +8,12 @@ RewriteRule ^ - [L]
 # XML sitemap
 RewriteRule ^sitemap\.xml$ sitemap.php [L,QSA]
 
+# Trust and company pages
+RewriteRule ^about/?$ about/index.php [L,QSA]
+RewriteRule ^contact/?$ contact/index.php [L,QSA]
+RewriteRule ^legal/disclaimer/?$ legal/disclaimer.php [L,QSA]
+RewriteRule ^legal/privacy/?$ legal/privacy.php [L,QSA]
+
 # Chinese / generic display hierarchy
 RewriteRule ^displays/?$ displays/index.php [L,QSA]
 RewriteRule ^displays/([a-zA-Z0-9-]+)/?$ displays/index.php?model=$1 [L,QSA]
