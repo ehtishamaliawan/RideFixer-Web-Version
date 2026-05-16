@@ -2,13 +2,12 @@
 $currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 $navItems = [
   ['href' => '/', 'label' => 'Home'],
-  ['href' => '/app', 'label' => 'My Garage'],
   ['href' => '/error-codes', 'label' => 'Error Codes'],
-  ['href' => '/settings', 'label' => 'Settings'],
-  ['href' => '/battery-health-calculator', 'label' => 'Battery'],
-  ['href' => '/motor-noise-diagnostic', 'label' => 'Noise'],
+  ['href' => '/settings', 'label' => 'P-Settings'],
+  ['href' => '/motor-noise-diagnostic', 'label' => 'Motor Noise'],
   ['href' => '/scan', 'label' => 'Scan'],
-  ['href' => '/articles', 'label' => 'Articles'],
+  ['href' => '/battery-health-calculator', 'label' => 'Battery'],
+  ['href' => '/articles', 'label' => 'Guides'],
 ];
 
 function navActiveClass(string $href, string $currentPath): string {
