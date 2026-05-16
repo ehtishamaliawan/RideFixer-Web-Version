@@ -49,7 +49,7 @@ header {
   top: 0;
   z-index: 30;
   border-bottom: 1px solid rgba(255,255,255,.08);
-  background: rgba(6, 16, 29, 0.84);
+  background: rgba(6, 16, 29, 0.88);
   backdrop-filter: blur(18px);
 }
 .nav {
@@ -67,6 +67,7 @@ header {
   font-weight: 850;
   letter-spacing: -0.5px;
   font-size: 1.28rem;
+  flex-shrink: 0;
 }
 .mark, .logo-mark {
   width: 44px;
@@ -82,14 +83,14 @@ header {
 }
 .links, .nav-links {
   display: flex;
-  gap: 18px;
+  gap: 14px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--muted);
 }
-.links a, .nav-links a { transition: .22s ease; }
+.links a, .nav-links a { transition: .22s ease; white-space: nowrap; }
 .links a:hover, .nav-links a:hover, .links a.active, .nav-links a.active { color: #fff; }
 .shop-pill {
   padding: 9px 14px;
@@ -99,6 +100,7 @@ header {
   font-weight: 850;
   border: 1px solid rgba(255,255,255,.18);
 }
+.app-download-strip { margin-top: 18px; }
 main.wrap, main.container { padding-top: 22px; }
 
 .hero {
@@ -240,8 +242,9 @@ ul { padding-left: 20px; }
 .article-list li a { display: block; padding: 16px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.065); }
 .article-list li a:hover { border-color: rgba(0,212,255,.35); }
 .footer { margin: 28px 0 34px; border-top: 1px solid var(--line); padding-top: 18px; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 0.9rem; }
-.floating-shop { position: fixed; right: 16px; bottom: 16px; z-index: 32; padding: 11px 15px; border-radius: 999px; background: linear-gradient(135deg, #ef9f58, #ffd2a2); color: #1f1408; font-weight: 900; border: 1px solid rgba(255,255,255,0.5); box-shadow: 0 14px 28px rgba(145, 80, 29, 0.28); }
+.floating-shop { position: fixed; right: 16px; bottom: 16px; z-index: 32; padding: 11px 15px; border-radius: 999px; background: linear-gradient(135deg, #22c55e, #14b8a6); color: #00131a; font-weight: 900; border: 1px solid rgba(255,255,255,0.5); box-shadow: 0 14px 28px rgba(20, 184, 166, 0.24); }
 #preview img { border: 1px solid var(--line); box-shadow: var(--shadow); }
 #result { border-radius: 20px; }
-@media (max-width: 980px) { .hero, .split, .kicker { grid-template-columns: 1fr; } .grid, .features { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-@media (max-width: 720px) { .links, .nav-links { display: none; } .grid, .features { grid-template-columns: 1fr; } .mini-grid, .trust { grid-template-columns: 1fr 1fr; } .floating-shop { left: 14px; right: 14px; text-align: center; } .card { padding: 20px; } .btn, button { width: 100%; } }
+@media (max-width: 1120px) { .links, .nav-links { gap: 10px; font-size: .84rem; } .shop-pill { padding: 8px 11px; } }
+@media (max-width: 980px) { .hero, .split, .kicker { grid-template-columns: 1fr; } .grid, .features { grid-template-columns: repeat(2, minmax(0,1fr)); } .nav { align-items: flex-start; flex-direction: column; padding: 12px 0; } .links, .nav-links { justify-content: flex-start; width: 100%; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; } }
+@media (max-width: 720px) { .grid, .features { grid-template-columns: 1fr; } .mini-grid, .trust { grid-template-columns: 1fr 1fr; } .floating-shop { left: 14px; right: 14px; text-align: center; bottom: 12px; } .card { padding: 20px; } .btn, button { width: 100%; } .links, .nav-links { flex-wrap: nowrap; } .app-download-strip { display: none; } body { padding-bottom: 72px; } }
