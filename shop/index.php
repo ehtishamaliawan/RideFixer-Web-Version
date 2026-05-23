@@ -1,53 +1,42 @@
 <?php
 require __DIR__ . '/../lib/bootstrap.php';
-$pageTitle = 'RideFixer Shop - E-Bike Parts & Replacement Components';
-$pageDescription = 'Shop displays, controllers, batteries, brakes, motors and essential e-bike parts.';
+$pageTitle = 'RideFixer Shop - Coming Soon';
+$pageDescription = 'RideFixer Shop is launching soon for e-bike parts, accessories and repair workflows.';
 $canonical = 'https://shop.ridefixer.app/';
 require __DIR__ . '/../partials/head.php';
 require __DIR__ . '/../partials/header.php';
 ?>
 
 <section class="hero">
-  <article class="card hero-card">
-    <span class="eyebrow">RideFixer Shop • E-Bike Parts</span>
-    <h1 style="margin-top:16px;">Smart <span class="gradient">E‑Bike Parts Store</span></h1>
-    <p class="sub" style="font-size:1.08rem;max-width:680px;">
-      Browse displays, batteries, controllers, motors and common replacement parts built around repair workflows.
+  <article class="card hero-card" style="text-align:center;">
+    <span class="eyebrow">RideFixer Shop</span>
+    <h1 style="margin-top:16px;">Store Launching <span class="gradient">Soon</span></h1>
+    <p class="sub" style="font-size:1.08rem;max-width:760px;margin:0 auto;">
+      We are preparing a dedicated e-bike parts marketplace focused on repair workflows, compatibility and trusted replacement components.
     </p>
-    <div class="cta-row">
-      <a href="#categories" class="btn btn-brand">Browse Parts</a>
-      <a href="https://ridefixer.app/error-codes" class="btn btn-dark">Match Fault → Part</a>
+
+    <div class="cta-row" style="justify-content:center;">
+      <a href="https://ridefixer.app/error-codes" class="btn btn-brand">Go to Diagnostics</a>
+      <a href="mailto:support@ridefixer.app" class="btn btn-dark">Request a Part</a>
     </div>
   </article>
-
-  <aside class="card" style="display:grid;place-items:center;text-align:center;min-height:320px;">
-    <div>
-      <div style="font-size:8rem;line-height:1;">🛒</div>
-      <h2>Repair-first e-bike shop</h2>
-      <p class="sub">Built around diagnostics, compatibility and common replacement paths.</p>
-    </div>
-  </aside>
-</section>
-
-<section id="categories" class="card">
-  <h2>Popular categories</h2>
-  <div class="grid">
-    <a class="item" href="#">🔋 Batteries</a>
-    <a class="item" href="#">🖥 Displays</a>
-    <a class="item" href="#">⚙️ Controllers</a>
-    <a class="item" href="#">🎛 Throttles</a>
-    <a class="item" href="#">🛞 Motors</a>
-    <a class="item" href="#">🛠 Accessories</a>
-  </div>
 </section>
 
 <section class="card">
-  <h2>Trusted compatibility</h2>
-  <div class="mini-grid">
-    <div class="mini"><strong>SW900</strong><span>Display ecosystem</span></div>
-    <div class="mini"><strong>S866</strong><span>Controllers & displays</span></div>
-    <div class="mini"><strong>KT LCD</strong><span>Replacement workflows</span></div>
+  <h2>What’s coming</h2>
+  <div class="grid">
+    <div class="item">🔋 Batteries</div>
+    <div class="item">🖥 Displays</div>
+    <div class="item">⚙️ Controllers</div>
+    <div class="item">🛞 Motors</div>
+    <div class="item">🛠 Accessories</div>
+    <div class="item">📦 Repair-first replacement parts</div>
   </div>
+</section>
+
+<section class="card" style="text-align:center;">
+  <h2>Built for riders & repair shops</h2>
+  <p class="sub">A focused marketplace connected to RideFixer diagnostics and compatibility workflows.</p>
 </section>
 
 <?php require __DIR__ . '/../partials/footer.php'; ?>
