@@ -14,9 +14,7 @@ $navItems = [
 ];
 
 function navActiveClass(string $href, string $currentPath): string {
-  if ($href === '/') {
-    return $currentPath === '/' ? 'active' : '';
-  }
+  if ($href === '/') return $currentPath === '/' ? 'active' : '';
   return str_starts_with(rtrim($currentPath, '/'), $href) ? 'active' : '';
 }
 ?>
@@ -32,6 +30,8 @@ function navActiveClass(string $href, string $currentPath): string {
         <a class="<?php echo e(navActiveClass($item['href'], $currentPath)); ?>" href="<?php echo e($item['href']); ?>"><?php echo e($item['label']); ?></a>
       <?php endforeach; ?>
 
+      <button id="themeToggle" class="shop-pill" type="button" style="background:rgba(255,255,255,.08);color:inherit;">🌙 Mode</button>
+
       <a href="<?php echo e($playStoreUrl); ?>" target="_blank" rel="noopener" class="shop-pill" style="background:linear-gradient(135deg,#22c55e,#14b8a6);">
         Get App
       </a>
@@ -42,6 +42,27 @@ function navActiveClass(string $href, string $currentPath): string {
     </nav>
   </div>
 </header>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('themeToggle');
+  if (!btn) return;
+
+  const applyLabel = () => {
+    const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+    btn.textContent = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
+  };
+
+  btn.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('ridefixer-theme', next);
+    applyLabel();
+  });
+
+  applyLabel();
+});
+</script>
 
 <div class="wrap app-download-strip" style="margin-top:18px;">
   <div style="background:linear-gradient(135deg,rgba(34,197,94,.14),rgba(20,184,166,.12));border:1px solid rgba(255,255,255,.08);padding:14px 18px;border-radius:18px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;">
@@ -54,9 +75,7 @@ function navActiveClass(string $href, string $currentPath): string {
     </div>
 
     <div style="display:flex;gap:12px;flex-wrap:wrap;">
-      <a href="<?php echo e($playStoreUrl); ?>" target="_blank" rel="noopener" class="btn btn-brand">
-        Download on Google Play
-      </a>
+      <a href="<?php echo e($playStoreUrl); ?>" target="_blank" rel="noopener" class="btn btn-brand">Download on Google Play</a>
     </div>
   </div>
 </div>
