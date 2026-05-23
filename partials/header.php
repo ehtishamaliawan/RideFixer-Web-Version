@@ -18,7 +18,7 @@ function navActiveClass(string $href, string $currentPath): string {
 }
 ?>
 <header>
-  <div class="wrap nav" style="position:relative;">
+  <div class="wrap nav" style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:14px;">
     <a href="/" class="brand" aria-label="RideFixer home">
       <img src="<?php echo e($appIcon); ?>" alt="RideFixer" style="width:42px;height:42px;border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.28);" />
       <span>RideFixer</span>
@@ -33,20 +33,20 @@ function navActiveClass(string $href, string $currentPath): string {
       <a href="https://shop.ridefixer.app" target="_blank" rel="noopener" class="shop-pill">Shop</a>
     </nav>
 
-    <div class="mobile-actions" style="display:none;align-items:center;gap:10px;">
+    <div class="mobile-actions" style="display:none;align-items:center;gap:10px;flex-shrink:0;">
       <button id="themeToggleMobile" class="shop-pill" type="button" style="background:rgba(255,255,255,.08);color:inherit;">🌙</button>
       <button id="menuToggle" class="shop-pill" type="button" style="background:rgba(255,255,255,.08);color:inherit;">☰</button>
     </div>
   </div>
 </header>
 
-<aside id="mobileDrawer" style="position:fixed;top:0;right:-100%;width:min(320px,86vw);height:100vh;background:rgba(6,16,29,.98);backdrop-filter:blur(18px);z-index:100;border-left:1px solid rgba(255,255,255,.08);padding:26px 20px;transition:right .28s ease;display:flex;flex-direction:column;gap:14px;">
+<aside id="mobileDrawer" style="position:fixed;top:0;right:-100%;width:min(320px,86vw);height:100vh;background:var(--bg-soft);color:var(--ink);backdrop-filter:blur(18px);z-index:100;border-left:1px solid var(--line);padding:26px 20px;transition:right .28s ease;display:flex;flex-direction:column;gap:14px;">
   <div style="display:flex;justify-content:space-between;align-items:center;">
     <strong>RideFixer</strong>
     <button id="menuClose" class="shop-pill" type="button" style="background:rgba(255,255,255,.08);color:inherit;">✕</button>
   </div>
   <?php foreach ($navItems as $item): ?>
-    <a class="<?php echo e(navActiveClass($item['href'], $currentPath)); ?>" href="<?php echo e($item['href']); ?>" style="padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.04);font-weight:700;">
+    <a class="<?php echo e(navActiveClass($item['href'], $currentPath)); ?>" href="<?php echo e($item['href']); ?>" style="padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.06);font-weight:700;color:inherit;">
       <?php echo e($item['label']); ?>
     </a>
   <?php endforeach; ?>
@@ -95,7 +95,8 @@ window.addEventListener('DOMContentLoaded', () => {
 <style>
 @media (max-width: 980px) {
   .desktop-nav { display:none !important; }
-  .mobile-actions { display:flex !important; }
+  .mobile-actions { display:flex !important; margin-left:auto; }
+  .nav { flex-direction:row !important; align-items:center !important; }
 }
 @media (min-width: 981px) {
   .mobile-actions, #mobileDrawer, #drawerOverlay { display:none !important; }
