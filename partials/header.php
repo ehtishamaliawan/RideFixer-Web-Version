@@ -35,24 +35,24 @@ function navActiveClass(string $href, string $currentPath): string {
 
     <div class="mobile-actions" style="display:none;align-items:center;gap:10px;">
       <button id="themeToggleMobile" class="shop-pill" type="button" style="background:rgba(255,255,255,.08);color:inherit;">🌙</button>
-      <button id="menuToggle" class="shop-pill" type="button" style="background:rgba(255,255,255,.08);color:inherit;font-size:1rem;">☰</button>
+      <button id="menuToggle" class="shop-pill" type="button" style="background:rgba(255,255,255,.08);color:inherit;">☰</button>
     </div>
   </div>
-
-  <aside id="mobileDrawer" style="position:fixed;top:0;right:-100%;width:min(320px,86vw);height:100vh;background:rgba(6,16,29,.98);backdrop-filter:blur(18px);z-index:100;border-left:1px solid rgba(255,255,255,.08);padding:26px 20px;transition:right .28s ease;display:flex;flex-direction:column;gap:14px;">
-    <div style="display:flex;justify-content:space-between;align-items:center;">
-      <strong>RideFixer</strong>
-      <button id="menuClose" class="shop-pill" type="button" style="background:rgba(255,255,255,.08);color:inherit;">✕</button>
-    </div>
-    <?php foreach ($navItems as $item): ?>
-      <a class="<?php echo e(navActiveClass($item['href'], $currentPath)); ?>" href="<?php echo e($item['href']); ?>" style="padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.04);font-weight:700;">
-        <?php echo e($item['label']); ?>
-      </a>
-    <?php endforeach; ?>
-  </aside>
-
-  <div id="drawerOverlay" style="position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:.25s ease;z-index:90;"></div>
 </header>
+
+<aside id="mobileDrawer" style="position:fixed;top:0;right:-100%;width:min(320px,86vw);height:100vh;background:rgba(6,16,29,.98);backdrop-filter:blur(18px);z-index:100;border-left:1px solid rgba(255,255,255,.08);padding:26px 20px;transition:right .28s ease;display:flex;flex-direction:column;gap:14px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <strong>RideFixer</strong>
+    <button id="menuClose" class="shop-pill" type="button" style="background:rgba(255,255,255,.08);color:inherit;">✕</button>
+  </div>
+  <?php foreach ($navItems as $item): ?>
+    <a class="<?php echo e(navActiveClass($item['href'], $currentPath)); ?>" href="<?php echo e($item['href']); ?>" style="padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.04);font-weight:700;">
+      <?php echo e($item['label']); ?>
+    </a>
+  <?php endforeach; ?>
+</aside>
+<div id="drawerOverlay" style="position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:.25s ease;z-index:90;"></div>
+
 <script>
 window.addEventListener('DOMContentLoaded', () => {
   const themeBtns = [document.getElementById('themeToggleDesktop'), document.getElementById('themeToggleMobile')].filter(Boolean);
@@ -103,4 +103,18 @@ window.addEventListener('DOMContentLoaded', () => {
 </style>
 
 <div class="wrap app-download-strip" style="margin-top:18px;">
+  <div style="background:linear-gradient(135deg,rgba(34,197,94,.14),rgba(20,184,166,.12));border:1px solid rgba(255,255,255,.08);padding:14px 18px;border-radius:18px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <img src="<?php echo e($appIcon); ?>" alt="RideFixer app" style="width:54px;height:54px;border-radius:16px;" />
+      <div>
+        <strong style="display:block;font-size:1rem;">RideFixer Android App</strong>
+        <span class="sub" style="font-size:.92rem;">Scan errors, compare sounds and diagnose e-bike issues on your phone.</span>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="<?php echo e($playStoreUrl); ?>" target="_blank" rel="noopener" class="btn btn-brand">Download on Google Play</a>
+    </div>
+  </div>
+</div>
+
 <main class="wrap">
