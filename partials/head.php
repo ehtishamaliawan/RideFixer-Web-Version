@@ -4,6 +4,7 @@ if (!isset($pageDescription)) $pageDescription = 'RideFixer helps e-bike riders 
 if (!isset($canonical)) $canonical = $baseUrl . '/';
 $appIcon = $baseUrl . '/my-android-app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png';
 $ogImage = $appIcon;
+$cssVersion = 'theme-v4';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +21,7 @@ $ogImage = $appIcon;
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500;700;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/site.css" />
+  <link rel="stylesheet" href="/assets/css/site.css?v=<?php echo e($cssVersion); ?>" />
   <script>
     (function() {
       try {
