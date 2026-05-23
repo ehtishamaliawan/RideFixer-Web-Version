@@ -23,16 +23,14 @@ $cssVersion = 'theme-v4';
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500;700;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/site.css?v=<?php echo e($cssVersion); ?>" />
   <script>
-    (function() {
-      try {
-        const saved = localStorage.getItem('ridefixer-theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = saved || (prefersDark ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
+    try {
+      var saved = localStorage.getItem('ridefixer-theme');
+      var hour = new Date().getHours();
+      var autoTheme = (hour >= 7 && hour < 18) ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', saved || autoTheme);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
   </script>
 </head>
 <body>
