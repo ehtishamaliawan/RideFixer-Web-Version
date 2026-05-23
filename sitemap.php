@@ -16,6 +16,7 @@ $urls = [
   '/legal/disclaimer',
   '/legal/privacy',
   '/articles/battery-maintenance',
+  '/articles/cassette-vs-freewheel',
 ];
 
 foreach (array_keys($brands) as $brandSlug) {
@@ -51,6 +52,7 @@ $priorities = [
   '/scan' => '0.90',
   '/motor-noise-diagnostic' => '0.88',
   '/battery-health-calculator' => '0.86',
+  '/articles/cassette-vs-freewheel' => '0.84',
 ];
 
 echo '<?xml version="1.0" encoding="UTF-8"?>';
