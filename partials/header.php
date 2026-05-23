@@ -43,7 +43,7 @@ function navActiveClass(string $href, string $currentPath): string {
 <aside id="mobileDrawer" style="position:fixed;top:0;right:-100%;width:min(320px,86vw);height:100vh;background:var(--bg-soft);color:var(--ink);backdrop-filter:blur(18px);z-index:100;border-left:1px solid var(--line);padding:26px 20px;transition:right .28s ease;display:flex;flex-direction:column;gap:14px;">
   <div style="display:flex;justify-content:space-between;align-items:center;">
     <strong>RideFixer</strong>
-    <button id="menuClose" class="shop-pill" type="button" style="background:rgba(255,255,255,.08);color:inherit;">✕</button>
+    <button id="menuClose" type="button" style="width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.08);color:inherit;font-size:1rem;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;">✕</button>
   </div>
   <?php foreach ($navItems as $item): ?>
     <a class="<?php echo e(navActiveClass($item['href'], $currentPath)); ?>" href="<?php echo e($item['href']); ?>" style="padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.06);font-weight:700;color:inherit;">
