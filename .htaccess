@@ -35,6 +35,7 @@ RewriteRule ^settings/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)/?$ settings/index.php?bran
 # Article and tool pages
 RewriteRule ^articles/?$ articles/index.php [L,QSA]
 RewriteRule ^articles/cassette-vs-freewheel/?$ articles/cassette-vs-freewheel.php [L,QSA]
+RewriteRule ^articles/hub-motor-vs-mid-drive/?$ articles/hub-motor-vs-mid-drive.php [L,QSA]
 RewriteRule ^articles/battery-maintenance/?$ articles/battery-maintenance.php [L,QSA]
 RewriteRule ^scan/?$ scan/index.php [L,QSA]
 RewriteRule ^battery-health-calculator/?$ battery-health-calculator/index.php [L,QSA]
