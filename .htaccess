@@ -1,0 +1,39 @@
+RewriteEngine On
+
+# Serve existing files/directories directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# XML sitemap
+RewriteRule ^sitemap\.xml$ sitemap.php [L,QSA]
+
+# Trust and company pages
+RewriteRule ^about/?$ about/index.php [L,QSA]
+RewriteRule ^contact/?$ contact/index.php [L,QSA]
+RewriteRule ^legal/disclaimer/?$ legal/disclaimer.php [L,QSA]
+RewriteRule ^legal/privacy/?$ legal/privacy.php [L,QSA]
+
+# Chinese / generic display hierarchy
+RewriteRule ^displays/?$ displays/index.php [L,QSA]
+RewriteRule ^displays/([a-zA-Z0-9-]+)/?$ displays/index.php?model=$1 [L,QSA]
+RewriteRule ^displays/([a-zA-Z0-9-]+)/error-codes/?$ displays/index.php?model=$1&section=errors [L,QSA]
+RewriteRule ^displays/([a-zA-Z0-9-]+)/error-codes/([a-zA-Z0-9-]+)/?$ displays/index.php?model=$1&section=error&code=$2 [L,QSA]
+RewriteRule ^displays/([a-zA-Z0-9-]+)/p-settings/?$ displays/index.php?model=$1&section=settings [L,QSA]
+RewriteRule ^displays/([a-zA-Z0-9-]+)/p-settings/([a-zA-Z0-9-]+)/?$ displays/index.php?model=$1&section=setting&code=$2 [L,QSA]
+
+# Error code routes
+RewriteRule ^error-codes/?$ error-codes/index.php [L,QSA]
+RewriteRule ^error-codes/([a-zA-Z0-9-]+)/?$ error-codes/index.php?brand=$1 [L,QSA]
+RewriteRule ^error-codes/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)/?$ error-codes/index.php?brand=$1&code=$2 [L,QSA]
+
+# Settings routes
+RewriteRule ^settings/?$ settings/index.php [L,QSA]
+RewriteRule ^settings/([a-zA-Z0-9-]+)/?$ settings/index.php?brand=$1 [L,QSA]
+RewriteRule ^settings/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)/?$ settings/index.php?brand=$1&code=$2 [L,QSA]
+
+# Article and tool pages
+RewriteRule ^articles/?$ articles/index.php [L,QSA]
+RewriteRule ^scan/?$ scan/index.php [L,QSA]
+RewriteRule ^battery-health-calculator/?$ battery-health-calculator/index.php [L,QSA]
+RewriteRule ^motor-noise-diagnostic/?$ motor-noise-diagnostic/index.php [L,QSA]

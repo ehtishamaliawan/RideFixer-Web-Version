@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RideFixer – Privacy Policy</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+           background: #f9f9fb; color: #1a1a2e; line-height: 1.7; }
+    header { background: linear-gradient(135deg, #6C63FF 0%, #48A999 100%);
+             padding: 48px 24px; text-align: center; color: white; }
+    header h1 { font-size: 2rem; margin-bottom: 8px; }
+    header p  { opacity: .85; font-size: .95rem; }
+    main { max-width: 800px; margin: 40px auto; padding: 0 24px 60px; }
+    section { background: #fff; border-radius: 12px; padding: 28px 32px;
+              margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+              border: 1px solid #ebebf0; }
+    section h2 { font-size: 1.1rem; color: #6C63FF; margin-bottom: 14px;
+                 display: flex; align-items: center; gap: 10px; }
+    section h2 span { font-size: 1.3rem; }
+    p, li { font-size: .95rem; color: #444; }
+    ul { padding-left: 20px; margin-top: 8px; }
+    li { margin-bottom: 6px; }
+    .highlight { background: #f0eeff; border-radius: 8px; padding: 14px 18px;
+                 margin-top: 14px; font-size: .9rem; color: #5a52cc; }
+    footer { text-align: center; color: #999; font-size: .85rem; padding: 24px; }
+    a { color: #6C63FF; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🚲 RideFixer</h1>
+  <p>Privacy Policy — Last updated: March 2026</p>
+</header>
+
+<main>
+
+  <section>
+    <h2><span>📋</span> Introduction</h2>
+    <p>RideFixer ("we", "our", or "us") is an e-bike companion app that helps riders identify
+       error codes shown on their e-bike display, adjust controller P-settings,
+       record ride distances, and locate nearby e-bike service shops.</p>
+    <p style="margin-top:10px">This Privacy Policy describes what data we collect, how we use it,
+       and your rights. By using RideFixer you agree to this policy.</p>
+  </section>
+
+  <section>
+    <h2><span>📍</span> Location Data</h2>
+    <p>RideFixer requests device location for <strong>two specific purposes only</strong>:</p>
+    <ul>
+      <li><strong>Ride Distance Tracking</strong> — When you start a ride session, RideFixer
+          uses GPS to record the distance you travel. Location is accessed <em>only while the
+          ride tracking session is active</em> and a foreground notification is visible.
+          A wake lock is held during active tracking to prevent the device from sleeping and
+          losing GPS signal. Tracking and the wake lock are both released as soon as you end
+          the ride.</li>
+      <li><strong>Nearby Shops Search</strong> — When you open the "Nearby Shops" feature,
+          RideFixer reads your current location <em>once</em> to search for nearby e-bike
+          service dealers via the OpenStreetMap Overpass API.</li>
+    </ul>
+    <div class="highlight">
+      ✅ Your location is <strong>never stored on our servers</strong>, never sold, and
+      never shared with any third parties beyond the Overpass API call described above.
+    </div>
+  </section>
+
+  <section>
+    <h2><span>📷</span> Camera</h2>
+    <p>RideFixer uses your camera to scan e-bike display labels for automatic model detection.
+       Images are processed entirely <strong>on-device</strong> using Google ML Kit.
+       No images are uploaded or stored anywhere.</p>
+  </section>
+
+  <section>
+    <h2><span>🖼️</span> Photo Gallery Access</h2>
+    <p>RideFixer may access photos from your device gallery in the following situations:</p>
+    <ul>
+      <li><strong>Bike Profile Photo</strong> — You can optionally pick a photo from your gallery when adding a bike to personalise its profile.</li>
+      <li><strong>Maintenance Reminder Photo</strong> — You can optionally attach a part photo from your gallery when creating a maintenance reminder.</li>
+      <li><strong>Display Label Scan</strong> — You can choose an existing photo from your gallery instead of using the camera to scan an e-bike display label.</li>
+    </ul>
+    <div class="highlight">
+      ✅ Gallery photos are used <strong>only within the app</strong>, stored locally on your device, and never uploaded or shared.
+    </div>
+  </section>
+
+  <section>
+    <h2><span>💾</span> Data Storage</h2>
+    <p>All app data — your bikes, ride history, maintenance reminders, and settings — is stored
+       locally on your device in a SQLite database using standard Android storage.
+       We do not operate any cloud servers or collect personal information.</p>
+  </section>
+
+  <section>
+    <h2><span>🔔</span> Notifications</h2>
+    <p>RideFixer may send local notifications for active ride tracking status and maintenance
+       reminders you configure. These are generated entirely on-device and do not involve
+       any external servers.</p>
+  </section>
+
+  <section>
+    <h2><span>🤝</span> Third-Party Services</h2>
+    <ul>
+      <li><strong>OpenStreetMap Overpass API</strong> — receives your GPS coordinates to return
+          nearby bicycle shops. See:
+          <a href="https://www.openstreetmap.org/copyright" target="_blank">openstreetmap.org/copyright</a></li>
+      <li><strong>Google ML Kit Text Recognition</strong> — on-device OCR only.
+          No data is sent to Google servers during label scanning.</li>
+      <li><strong>Google Play Services (Location)</strong> — used on Android for
+          accurate GPS positioning. Subject to Google's Privacy Policy:
+          <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span>🔒</span> Data Security</h2>
+    <p>Since all data is stored locally on your device, security is provided by your device's
+       operating system and encryption. We do not transmit or store personal data on remote
+       servers, so there is no risk of a server-side data breach affecting your information.</p>
+  </section>
+
+  <section>
+    <h2><span>👶</span> Children's Privacy</h2>
+    <p>RideFixer is not directed at children under the age of 13. We do not knowingly collect
+       personal information from children. If you believe a child has provided personal data,
+       please contact us so we can take appropriate action.</p>
+  </section>
+
+  <section>
+    <h2><span>🔄</span> Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be posted on
+       this page with an updated date. Continued use of the app after changes constitutes
+       your acceptance of the updated policy.</p>
+  </section>
+
+  <section>
+    <h2><span>✉️</span> Contact Us</h2>
+    <p>If you have any questions about this Privacy Policy or how RideFixer handles your data,
+       please contact us at:</p>
+    <p style="margin-top:10px"><a href="mailto:ridefixer232@gmail.com">ridefixer232@gmail.com</a></p>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 RideFixer · All rights reserved
+</footer>
+
+</body>
+</html>

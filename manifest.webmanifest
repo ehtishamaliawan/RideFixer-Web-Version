@@ -1,0 +1,36 @@
+{
+  "name": "RideFixer - E-Bike Diagnostics",
+  "short_name": "RideFixer",
+  "description": "E-bike diagnostics, error codes, display settings, battery health and repair sound guidance.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#06101d",
+  "theme_color": "#06101d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/img/ridefixer-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["utilities", "productivity", "navigation"],
+  "shortcuts": [
+    {
+      "name": "Find Error Code",
+      "short_name": "Errors",
+      "description": "Search e-bike error codes",
+      "url": "/error-codes",
+      "icons": [{"src": "/assets/img/ridefixer-icon.svg", "sizes": "512x512", "type": "image/svg+xml"}]
+    },
+    {
+      "name": "Scan Display",
+      "short_name": "Scan",
+      "description": "Scan an e-bike display image",
+      "url": "/scan",
+      "icons": [{"src": "/assets/img/ridefixer-icon.svg", "sizes": "512x512", "type": "image/svg+xml"}]
+    }
+  ]
+}

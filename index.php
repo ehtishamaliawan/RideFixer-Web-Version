@@ -1,0 +1,89 @@
+<?php
+require __DIR__ . '/lib/bootstrap.php';
+$pageTitle = 'RideFixer - Smart E-Bike Diagnostics Platform';
+$pageDescription = 'RideFixer is an intelligent e-bike diagnostics platform with AI-assisted display recognition, error-code troubleshooting, repair guidance and battery analysis.';
+$canonical = $baseUrl . '/';
+
+$diagnosticSuggestions = [
+  ['href' => '/error-codes/generic', 'title' => 'Generic display error', 'text' => 'Choose your display model first, then open the matching diagnostic flow.'],
+  ['href' => '/displays/sw900', 'title' => 'SW900 diagnostics', 'text' => 'Smart troubleshooting and parameter guidance for SW900-style displays.'],
+  ['href' => '/displays/s866', 'title' => 'S866 diagnostics', 'text' => 'Model-specific diagnostics and controller troubleshooting workflows.'],
+  ['href' => '/displays/gd01', 'title' => 'GD01 display help', 'text' => 'Error-code and setting guidance for GD01 display families.'],
+  ['href' => '/displays/ukc1', 'title' => 'UKC1 display help', 'text' => 'Troubleshooting flow for common UKC1 and UKC-1 style displays.'],
+  ['href' => '/error-codes/bafang/30', 'title' => 'Bafang Error 30', 'text' => 'Communication and wiring diagnostics for Bafang systems.'],
+  ['href' => '/motor-noise-diagnostic', 'title' => 'Motor or wheel noise', 'text' => 'Use acoustic comparison guidance to identify likely causes.'],
+  ['href' => '/battery-health-calculator', 'title' => 'Weak battery or low range', 'text' => 'Estimate battery health and identify possible degradation patterns.'],
+  ['href' => '/settings', 'title' => 'Controller setting issue', 'text' => 'Select your display model before adjusting P-settings.'],
+];
+shuffle($diagnosticSuggestions);
+$diagnosticSuggestions = array_slice($diagnosticSuggestions, 0, 6);
+
+require __DIR__ . '/partials/head.php';
+?>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebSite", "SoftwareApplication"],
+  "name": "RideFixer",
+  "url": "https://ridefixer.app/",
+  "description": "RideFixer is an intelligent e-bike diagnostics platform with AI-assisted display recognition, repair guidance and smart troubleshooting workflows.",
+  "applicationCategory": "VehicleApplication",
+  "operatingSystem": "Browser",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<?php require __DIR__ . '/partials/header.php'; ?>
+
+<section class="hero">
+  <article class="card hero-card">
+    <span class="eyebrow">Smart Diagnostics • AI-Assisted Scan • Repair Guidance</span>
+    <h1 style="margin-top:16px;">Intelligent <span class="gradient">E‑Bike Diagnostics</span></h1>
+    <p class="sub" style="font-size:1.08rem;max-width:680px;">
+      RideFixer helps riders diagnose display faults, understand error codes, compare repair sounds and follow intelligent troubleshooting workflows before replacing expensive parts.
+    </p>
+    <div class="cta-row">
+      <a href="/error-codes" class="btn btn-brand">⚠️ Smart Error Search</a>
+      <a href="/scan" class="btn btn-dark">📷 AI-Assisted Scan</a>
+      <a href="/motor-noise-diagnostic" class="btn btn-dark">🔊 Acoustic Diagnostics</a>
+    </div>
+    <div class="mini-grid">
+      <div class="mini"><strong><?php echo array_sum(array_map('count', $errorCatalog)); ?>+</strong><span>Diagnostic references</span></div>
+      <div class="mini"><strong><?php echo count($brands); ?></strong><span>E-bike systems</span></div>
+      <div class="mini"><strong>AI</strong><span>Assisted recognition</span></div>
+    </div>
+  </article>
+
+  <aside class="card" style="display:grid;place-items:center;text-align:center;min-height:360px;">
+    <div>
+      <div style="font-size:9rem;line-height:1;">🚴</div>
+      <h2 style="margin-top:18px;">Built for modern e-bike diagnostics</h2>
+      <p class="sub">Display recognition, intelligent troubleshooting, battery analysis and rider-focused repair workflows in one platform.</p>
+    </div>
+  </aside>
+</section>
+
+<section class="card">
+  <span class="eyebrow">RideFixer Platform</span>
+  <h2 style="margin-top:12px;">Smart tools for riders and repair workflows.</h2>
+  <p class="sub">Start with the problem you see or hear, then open the matching intelligent diagnostic workflow.</p>
+  <div class="grid">
+    <a href="/error-codes" class="item"><h3>⚠️ Smart Error Codes</h3><p>Structured diagnostics for Bafang, Bosch, Shimano, Yamaha and generic controller systems.</p></a>
+    <a href="/displays" class="item"><h3>🖥️ Display Recognition</h3><p>Choose your display model for targeted error-code and P-setting guidance.</p></a>
+    <a href="/motor-noise-diagnostic" class="item"><h3>🔊 Acoustic Diagnostics</h3><p>Compare real repair sounds and identify likely mechanical issues.</p></a>
+    <a href="/scan" class="item"><h3>📷 AI-Assisted Scan</h3><p>Upload a display image and intelligently detect matching diagnostic references.</p></a>
+    <a href="/battery-health-calculator" class="item"><h3>🔋 Battery Intelligence</h3><p>Estimate battery condition, degradation and replacement timing.</p></a>
+    <a href="/settings" class="item"><h3>⚙️ Smart P‑Settings</h3><p>Controller and display parameter guidance after selecting the correct model.</p></a>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Suggested diagnostics today</h2>
+  <p class="sub">RideFixer rotates useful starting points so returning riders can discover more repair paths.</p>
+  <div class="grid">
+    <?php foreach ($diagnosticSuggestions as $item): ?>
+      <a class="item" href="<?php echo e($item['href']); ?>"><h3><?php echo e($item['title']); ?></h3><p><?php echo e($item['text']); ?></p></a>
+    <?php endforeach; ?>
+  </div>
+</section>
+
+<?php require __DIR__ . '/partials/footer.php';
