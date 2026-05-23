@@ -7,6 +7,7 @@ require_once __DIR__ . '/../partials/head.php';
 require_once __DIR__ . '/../partials/header.php';
 
 $articles = [
+  ['url'=>'/articles/hub-motor-vs-mid-drive','title'=>'Hub Motor vs Mid Drive: What’s the Difference?','desc'=>'Compare torque, climbing, maintenance, efficiency and which motor system is better for commuting or hills.'],
   ['url'=>'/articles/cassette-vs-freewheel','title'=>'Cassette vs Freewheel: What’s the Difference?','desc'=>'Understand how cassette and freewheel systems differ, which is stronger, and what is better for bikes and e-bikes.'],
   ['url'=>'/articles/battery-maintenance','title'=>'E‑Bike Battery Maintenance: Best Practices','desc'=>'Charging, storage, winter care and battery safety tips.'],
   ['url'=>'/error-codes/generic/e07','title'=>'Hall Sensor Fault Guide','desc'=>'Understand generic E07 hall sensor issues and fixes.'],
