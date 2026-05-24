@@ -1,7 +1,7 @@
 <?php
 
 $fullGenericSettings = ['p01','p02','p03','p04','p05','p06','p07','p08','p09','p10','p11','p12','p13','p14','p15','p16'];
-$fullGenericErrors = ['e01','e02','e03','e05','e06','e07','e08','e09','e10','e11','e21','e22','e24','e25','e30'];
+$fullGenericErrors = ['e01','e02','e03','e05','e06','e07','e08','e09','e10','e11','e21','e22','e24','e25','e29'];
 
 return [
   'sw900' => [
@@ -18,8 +18,8 @@ return [
     'family' => 'Generic Display Family',
     'summary' => 'Common generic display family used with many hub-motor controller kits.',
     'keywords' => ['GD01 error codes', 'GD01 display settings', 'GD01 ebike display'],
-    'settings' => ['p01','p02','p03','p04','p06','p08','p09','p10','p11','p12','p14','p15'],
-    'errors' => ['e01','e02','e03','e05','e06','e07','e08','e09','e21','e22','e30'],
+    'settings' => $fullGenericSettings,
+    'errors' => $fullGenericErrors,
     'notes' => ['GD01 labels can vary between sellers.', 'If the code is unclear, compare symptoms with the generic controller guide.'],
   ],
   'gd02' => [
@@ -27,8 +27,8 @@ return [
     'family' => 'Generic Display Family',
     'summary' => 'Common generic display family similar to GD01, often bundled with budget hub-motor kits.',
     'keywords' => ['GD02 error codes', 'GD02 display settings', 'GD02 controller fault'],
-    'settings' => ['p01','p02','p03','p04','p06','p08','p09','p10','p11','p12','p14','p15'],
-    'errors' => ['e01','e02','e03','e05','e06','e07','e08','e09','e21','e22','e30'],
+    'settings' => $fullGenericSettings,
+    'errors' => $fullGenericErrors,
     'notes' => ['GD02 menus may use seller-specific wording.', 'Check controller voltage before changing P03 or low-voltage settings.'],
   ],
   's866' => [
@@ -45,8 +45,8 @@ return [
     'family' => 'Compact Generic Display',
     'summary' => 'Compact display often bundled with hub-motor kits and basic controller systems.',
     'keywords' => ['S830 error codes', 'S830 settings', 'S830 ebike display'],
-    'settings' => ['p01','p02','p03','p04','p06','p08','p09','p10','p11','p12','p14','p15'],
-    'errors' => ['e01','e02','e03','e05','e06','e07','e21','e22','e30'],
+    'settings' => $fullGenericSettings,
+    'errors' => $fullGenericErrors,
     'notes' => ['S830 is usually simpler than SW900/S866.', 'Start with wheel size, voltage and speed limit if readings look wrong.'],
   ],
   'kt-lcd3' => [
@@ -54,8 +54,8 @@ return [
     'family' => 'Kunteng / KT Controller Display',
     'summary' => 'KT controller and LCD3-style display system with deeper controller parameter options.',
     'keywords' => ['KT LCD3 settings', 'KT controller P settings', 'KT LCD3 error codes'],
-    'settings' => ['p01','p02','p03','p04','p05','p06','p07','p08','p09','p10','p11','p12','p13','p14','p15'],
-    'errors' => ['e03','e05','e06','e07','e08','e09','e21','e22','e30'],
+    'settings' => $fullGenericSettings,
+    'errors' => $fullGenericErrors,
     'notes' => ['KT displays may use both P and C parameter groups.', 'Current and PAS settings should match controller and battery ratings.'],
   ],
   'ukc1' => [
@@ -63,8 +63,8 @@ return [
     'family' => 'Basic Generic LCD Display',
     'summary' => 'Very common basic LCD display used with many conversion kits and generic controllers.',
     'keywords' => ['UKC1 error codes', 'UKC1 settings', 'UKC-1 display error'],
-    'settings' => ['p01','p02','p03','p04','p06','p08','p09','p10','p11','p12','p14','p15'],
-    'errors' => ['e01','e02','e03','e05','e06','e07','e08','e21','e22','e30'],
+    'settings' => $fullGenericSettings,
+    'errors' => $fullGenericErrors,
     'notes' => ['UKC1 variants can look similar but use different controller firmware.', 'If a setting is missing on your display, it may be locked by firmware.'],
   ],
   'm5' => [
@@ -72,9 +72,9 @@ return [
     'family' => 'Generic Compact Display',
     'summary' => 'Widely used display family including M5 and similar variants.',
     'keywords' => ['M5 display error codes', 'M5 display settings', 'generic ebike display errors'],
-    'settings' => ['p01','p03','p06','p08','p10','p11','p12','p14','p15'],
-    'errors' => ['e01','e02','e06','e07','e08','e21','e22','e30'],
-    'notes' => ['If the display shows E07 or E30, check motor/controller wiring first.', 'Settings are controller-dependent.'],
+    'settings' => $fullGenericSettings,
+    'errors' => $fullGenericErrors,
+    'notes' => ['If the display shows E07 or E29, check motor/controller wiring first.', 'Settings are controller-dependent.'],
   ],
   'other' => [
     'name' => 'Other / Not sure',

@@ -7,14 +7,13 @@ require_once __DIR__ . '/../partials/head.php';
 require_once __DIR__ . '/../partials/header.php';
 
 $articles = [
+  ['url'=>'/articles/hub-motor-vs-mid-drive','title'=>'Hub Motor vs Mid Drive: What’s the Difference?','desc'=>'Compare torque, climbing, maintenance, efficiency and which motor system is better for commuting or hills.'],
+  ['url'=>'/articles/cassette-vs-freewheel','title'=>'Cassette vs Freewheel: What’s the Difference?','desc'=>'Understand how cassette and freewheel systems differ, which is stronger, and what is better for bikes and e-bikes.'],
   ['url'=>'/articles/battery-maintenance','title'=>'E‑Bike Battery Maintenance: Best Practices','desc'=>'Charging, storage, winter care and battery safety tips.'],
-  ['url'=>'/error-codes/generic/e07','title'=>'Hall Sensor Fault Guide','desc'=>'Understand generic E07 hall sensor issues and fixes.'],
-  ['url'=>'/error-codes/bafang/30','title'=>'Bafang Error 30 Explained','desc'=>'Display/controller communication troubleshooting guide.'],
-  ['url'=>'/settings','title'=>'Chinese Display P-Settings Guide','desc'=>'SW900, S866 and generic controller settings help.'],
 ];
 ?>
 <section class="card">
-  <span class="eyebrow">SEO Knowledge Base</span>
+  <span class="eyebrow">Knowledge Base</span>
   <h1 style="margin-top:14px;">RideFixer Articles</h1>
   <p class="sub">Repair guides, battery knowledge, controller settings and troubleshooting resources built for e-bike riders and shops.</p>
 </section>
