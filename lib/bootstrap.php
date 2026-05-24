@@ -5,20 +5,7 @@ $host = $_SERVER['HTTP_HOST'] ?? 'ridefixer.app';
 $baseUrl = $scheme . '://' . $host;
 $year = date('Y');
 
-$catalogPath = __DIR__ . '/../config/catalog.php';
-$catalogAlt = __DIR__ . '/../config/catalog_utf8.php';
-if (file_exists($catalogAlt)) {
-  $catalog = require $catalogAlt;
-} elseif (file_exists($catalogPath)) {
-  $catalog = require $catalogPath;
-} else {
-  $catalog = [
-    'brandAliases' => [],
-    'brands' => [],
-    'errorCatalog' => [],
-    'settingsCatalog' => [],
-  ];
-}
+$catalog = require __DIR__ . '/../config/catalog.php';
 $brands = $catalog['brands'] ?? [];
 $brandAliases = $catalog['brandAliases'] ?? [];
 $errorCatalog = $catalog['errorCatalog'] ?? [];
