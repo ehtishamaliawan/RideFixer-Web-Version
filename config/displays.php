@@ -1,7 +1,7 @@
 <?php
 
 $fullGenericSettings = ['p01','p02','p03','p04','p05','p06','p07','p08','p09','p10','p11','p12','p13','p14','p15','p16'];
-$fullGenericErrors = ['e01','e02','e03','e05','e06','e07','e08','e09','e10','e11','e21','e22','e24','e25','e30'];
+$fullGenericErrors = ['e01','e02','e03','e05','e06','e07','e08','e09','e10','e11','e21','e22','e24','e25','e29'];
 
 return [
   'sw900' => [
@@ -74,7 +74,7 @@ return [
     'keywords' => ['M5 display error codes', 'M5 display settings', 'generic ebike display errors'],
     'settings' => $fullGenericSettings,
     'errors' => $fullGenericErrors,
-    'notes' => ['If the display shows E07 or E30, check motor/controller wiring first.', 'Settings are controller-dependent.'],
+    'notes' => ['If the display shows E07 or E29, check motor/controller wiring first.', 'Settings are controller-dependent.'],
   ],
   'other' => [
     'name' => 'Other / Not sure',

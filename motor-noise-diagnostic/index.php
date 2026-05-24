@@ -106,7 +106,7 @@ require __DIR__ . '/../partials/header.php';
     <h2 style="margin-top:0;">Related diagnostic tools</h2>
     <div class="list">
       <a class="row" href="/error-codes/generic/e07">Hall sensor error diagnosis</a>
-      <a class="row" href="/error-codes/generic/e30">Display/controller communication error</a>
+      <a class="row" href="/error-codes/generic/e29">Display/controller communication error</a>
       <a class="row" href="/settings/generic/p14">Controller current limit tuning</a>
       <a class="row" href="/scan">Scan display for controller errors</a>
       <a class="row" href="/battery-health-calculator">Battery health check</a>

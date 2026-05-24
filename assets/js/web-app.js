@@ -200,7 +200,7 @@
           <option value="brose">Brose</option>
         </select>
         <label>Code</label>
-        <input id="quickCode" placeholder="e07, e30, 21, 503..." />
+        <input id="quickCode" placeholder="e07, e29, 21, 503..." />
         <button class="btn btn-brand" type="submit">Open SEO Page</button>
       </form>
     `;
