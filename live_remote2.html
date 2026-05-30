@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RideFixer - Smart E-Bike Diagnostics Platform</title>
+  <meta name="description" content="RideFixer is an intelligent e-bike diagnostics platform with AI-assisted display recognition, error-code troubleshooting, repair guidance and battery analysis." />
+  <meta name="theme-color" content="#06101d" />
+  <link rel="canonical" href="https://ridefixer.app/" />
+  <link rel="icon" href="https://ridefixer.app/my-android-app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" type="image/png" />
+  <link rel="apple-touch-icon" href="https://ridefixer.app/my-android-app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500;700;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/site.css?v=theme-v4" />
+  <script>
+    try {
+      var saved = localStorage.getItem('ridefixer-theme');
+      var hour = new Date().getHours();
+      var autoTheme = (hour >= 7 && hour < 18) ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', saved || autoTheme);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+</head>
+<body>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebSite", "SoftwareApplication"],
+  "name": "RideFixer",
+  "url": "https://ridefixer.app/",
+  "description": "RideFixer is an intelligent e-bike diagnostics platform with AI-assisted display recognition, repair guidance and smart troubleshooting workflows.",
+  "applicationCategory": "VehicleApplication",
+  "operatingSystem": "Browser",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<header>
+  <div class="wrap nav" style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:14px;">
+    <a href="/" class="brand" aria-label="RideFixer home">
+      <img src="/my-android-app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="RideFixer" style="width:42px;height:42px;border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.28);" />
+      <span>RideFixer</span>
+    </a>
+
+    <nav class="links desktop-nav" aria-label="Main navigation">
+              <a class="active" href="/">Home</a>
+              <a class="" href="/error-codes">Error Codes</a>
+              <a class="" href="/displays">Displays</a>
+              <a class="" href="/settings">P-Settings</a>
+              <a class="" href="/motor-noise-diagnostic">Motor Noise</a>
+              <a class="" href="/scan">Scan</a>
+              <a class="" href="/battery-health-calculator">Battery</a>
+              <a class="" href="/articles">Guides</a>
+            <button id="themeToggleDesktop" class="shop-pill" type="button" style="background:rgba(255,255,255,.08);color:inherit;">🌙</button>
+      <a href="https://play.google.com/store/apps/details?id=com.bytefixer.ridefixer" target="_blank" rel="noopener" class="shop-pill" style="background:linear-gradient(135deg,#22c55e,#14b8a6);">Get App</a>
+      <a href="https://shop.ridefixer.app" target="_blank" rel="noopener" class="shop-pill">Shop</a>
+    </nav>
+
+    <div class="mobile-actions" style="display:none;align-items:center;gap:10px;flex-shrink:0;">
+      <button id="themeToggleMobile" class="shop-pill" type="button" style="background:rgba(255,255,255,.08);color:inherit;">🌙</button>
+      <button id="menuToggle" class="shop-pill" type="button" style="background:rgba(255,255,255,.08);color:inherit;">☰</button>
+    </div>
+  </div>
+</header>
+
+<aside id="mobileDrawer" style="position:fixed;top:0;right:-100%;width:min(320px,86vw);height:100vh;background:var(--bg-soft);color:var(--ink);backdrop-filter:blur(18px);z-index:100;border-left:1px solid var(--line);padding:26px 20px;transition:right .28s ease;display:flex;flex-direction:column;gap:14px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <strong>RideFixer</strong>
+    <button id="menuClose" type="button" style="width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.08);color:inherit;font-size:1rem;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;">✕</button>
+  </div>
+      <a class="active" href="/" style="padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.06);font-weight:700;color:inherit;">
+      Home    </a>
+      <a class="" href="/error-codes" style="padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.06);font-weight:700;color:inherit;">
+      Error Codes    </a>
+      <a class="" href="/displays" style="padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.06);font-weight:700;color:inherit;">
+      Displays    </a>
+      <a class="" href="/settings" style="padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.06);font-weight:700;color:inherit;">
+      P-Settings    </a>
+      <a class="" href="/motor-noise-diagnostic" style="padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.06);font-weight:700;color:inherit;">
+      Motor Noise    </a>
+      <a class="" href="/scan" style="padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.06);font-weight:700;color:inherit;">
+      Scan    </a>
+      <a class="" href="/battery-health-calculator" style="padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.06);font-weight:700;color:inherit;">
+      Battery    </a>
+      <a class="" href="/articles" style="padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.06);font-weight:700;color:inherit;">
+      Guides    </a>
+  </aside>
+<div id="drawerOverlay" style="position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:.25s ease;z-index:90;"></div>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const themeBtns = [document.getElementById('themeToggleDesktop'), document.getElementById('themeToggleMobile')].filter(Boolean);
+  const menuBtn = document.getElementById('menuToggle');
+  const closeBtn = document.getElementById('menuClose');
+  const drawer = document.getElementById('mobileDrawer');
+  const overlay = document.getElementById('drawerOverlay');
+
+  const applyLabels = () => {
+    const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+    themeBtns.forEach(btn => btn.textContent = theme === 'dark' ? '☀️' : '🌙');
+  };
+
+  themeBtns.forEach(btn => btn.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('ridefixer-theme', next);
+    applyLabels();
+  }));
+
+  menuBtn?.addEventListener('click', () => {
+    drawer.style.right = '0';
+    overlay.style.opacity = '1';
+    overlay.style.pointerEvents = 'auto';
+  });
+
+  const closeDrawer = () => {
+    drawer.style.right = '-100%';
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+  };
+
+  closeBtn?.addEventListener('click', closeDrawer);
+  overlay?.addEventListener('click', closeDrawer);
+  applyLabels();
+});
+</script>
+
+<style>
+@media (max-width: 980px) {
+  .desktop-nav { display:none !important; }
+  .mobile-actions { display:flex !important; margin-left:auto; }
+  .nav { flex-direction:row !important; align-items:center !important; }
+}
+@media (min-width: 981px) {
+  .mobile-actions, #mobileDrawer, #drawerOverlay { display:none !important; }
+}
+</style>
+
+<div class="wrap app-download-strip" style="margin-top:18px;">
+  <div style="background:linear-gradient(135deg,rgba(34,197,94,.14),rgba(20,184,166,.12));border:1px solid rgba(255,255,255,.08);padding:14px 18px;border-radius:18px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <img src="/my-android-app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="RideFixer app" style="width:54px;height:54px;border-radius:16px;" />
+      <div>
+        <strong style="display:block;font-size:1rem;">RideFixer Android App</strong>
+        <span class="sub" style="font-size:.92rem;">Scan errors, compare sounds and diagnose e-bike issues on your phone.</span>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="https://play.google.com/store/apps/details?id=com.bytefixer.ridefixer" target="_blank" rel="noopener" class="btn btn-brand">Download on Google Play</a>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+<section class="hero">
+  <article class="card hero-card">
+    <span class="eyebrow">Smart Diagnostics • AI-Assisted Scan • Repair Guidance</span>
+    <h1 style="margin-top:16px;">Intelligent <span class="gradient">E‑Bike Diagnostics</span></h1>
+    <p class="sub" style="font-size:1.08rem;max-width:680px;">
+      RideFixer helps riders diagnose display faults, understand error codes, compare repair sounds and follow intelligent troubleshooting workflows before replacing expensive parts.
+    </p>
+    <div class="cta-row">
+      <a href="/error-codes" class="btn btn-brand">⚠️ Smart Error Search</a>
+      <a href="/scan" class="btn btn-dark">📷 AI-Assisted Scan</a>
+      <a href="/motor-noise-diagnostic" class="btn btn-dark">🔊 Acoustic Diagnostics</a>
+    </div>
+    <div class="mini-grid">
+      <div class="mini"><strong>71+</strong><span>Diagnostic references</span></div>
+      <div class="mini"><strong>6</strong><span>E-bike systems</span></div>
+      <div class="mini"><strong>AI</strong><span>Assisted recognition</span></div>
+    </div>
+  </article>
+
+  <aside class="card" style="display:grid;place-items:center;text-align:center;min-height:360px;">
+    <div>
+      <div style="font-size:9rem;line-height:1;">🚴</div>
+      <h2 style="margin-top:18px;">Built for modern e-bike diagnostics</h2>
+      <p class="sub">Display recognition, intelligent troubleshooting, battery analysis and rider-focused repair workflows in one platform.</p>
+    </div>
+  </aside>
+</section>
+
+<section class="card">
+  <span class="eyebrow">RideFixer Platform</span>
+  <h2 style="margin-top:12px;">Smart tools for riders and repair workflows.</h2>
+  <p class="sub">Start with the problem you see or hear, then open the matching intelligent diagnostic workflow.</p>
+  <div class="grid">
+    <a href="/error-codes" class="item"><h3>⚠️ Smart Error Codes</h3><p>Structured diagnostics for Bafang, Bosch, Shimano, Yamaha and generic controller systems.</p></a>
+    <a href="/displays" class="item"><h3>🖥️ Display Recognition</h3><p>Choose your display model for targeted error-code and P-setting guidance.</p></a>
+    <a href="/motor-noise-diagnostic" class="item"><h3>🔊 Acoustic Diagnostics</h3><p>Compare real repair sounds and identify likely mechanical issues.</p></a>
+    <a href="/scan" class="item"><h3>📷 AI-Assisted Scan</h3><p>Upload a display image and intelligently detect matching diagnostic references.</p></a>
+    <a href="/battery-health-calculator" class="item"><h3>🔋 Battery Intelligence</h3><p>Estimate battery condition, degradation and replacement timing.</p></a>
+    <a href="/settings" class="item"><h3>⚙️ Smart P‑Settings</h3><p>Controller and display parameter guidance after selecting the correct model.</p></a>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Suggested diagnostics today</h2>
+  <p class="sub">RideFixer rotates useful starting points so returning riders can discover more repair paths.</p>
+  <div class="grid">
+          <a class="item" href="/displays/sw900"><h3>SW900 diagnostics</h3><p>Smart troubleshooting and parameter guidance for SW900-style displays.</p></a>
+          <a class="item" href="/motor-noise-diagnostic"><h3>Motor or wheel noise</h3><p>Use acoustic comparison guidance to identify likely causes.</p></a>
+          <a class="item" href="/error-codes/generic"><h3>Generic display error</h3><p>Choose your display model first, then open the matching diagnostic flow.</p></a>
+          <a class="item" href="/displays/ukc1"><h3>UKC1 display help</h3><p>Troubleshooting flow for common UKC1 and UKC-1 style displays.</p></a>
+          <a class="item" href="/settings"><h3>Controller setting issue</h3><p>Select your display model before adjusting P-settings.</p></a>
+          <a class="item" href="/battery-health-calculator"><h3>Weak battery or low range</h3><p>Estimate battery health and identify possible degradation patterns.</p></a>
+      </div>
+</section>
+
+  <footer class="footer" style="margin-top:48px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;width:100%;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:20px;">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <img src="/my-android-app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="RideFixer" style="width:44px;height:44px;border-radius:14px;" />
+          <strong style="font-size:1.1rem;">RideFixer</strong>
+        </div>
+        <p class="sub" style="max-width:320px;">
+          Intelligent e-bike diagnostics, error codes, display settings, repair sounds and practical troubleshooting guidance.
+        </p>
+      </div>
+
+      <div>
+        <strong style="display:block;margin-bottom:12px;">Diagnostics</strong>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/error-codes">Error Codes</a>
+          <a href="/displays">Display Models</a>
+          <a href="/settings">P-Settings</a>
+          <a href="/motor-noise-diagnostic">Motor Noise</a>
+        </div>
+      </div>
+
+      <div>
+        <strong style="display:block;margin-bottom:12px;">Tools</strong>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/scan">Scan Display</a>
+          <a href="/battery-health-calculator">Battery Health</a>
+          <a href="/articles">Guides</a>
+          <a href="https://shop.ridefixer.app" target="_blank" rel="noopener">RideFixer Shop</a>
+        </div>
+      </div>
+
+      <div>
+        <strong style="display:block;margin-bottom:12px;">Company & Safety</strong>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/about">About RideFixer</a>
+          <a href="/contact">Contact</a>
+          <a href="/legal/disclaimer">Diagnostic Disclaimer</a>
+          <a href="/legal/privacy">Privacy Policy</a>
+        </div>
+      </div>
+
+      <div>
+        <strong style="display:block;margin-bottom:12px;">Get the App</strong>
+        <p class="sub" style="margin-bottom:14px;">Use RideFixer on Android for faster diagnostics and mobile troubleshooting.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.bytefixer.ridefixer" target="_blank" rel="noopener" class="btn btn-brand">
+          Download on Google Play
+        </a>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;width:100%;align-items:center;">
+      <div>© 2026 RideFixer. All rights reserved.</div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+        <a href="mailto:ridefixer232@gmail.com">ridefixer232@gmail.com</a>
+        <a href="/legal/disclaimer">Disclaimer</a>
+        <a href="/legal/privacy">Privacy</a>
+        <a href="https://play.google.com/store/apps/details?id=com.bytefixer.ridefixer" target="_blank" rel="noopener">Google Play</a>
+        <a href="https://shop.ridefixer.app" target="_blank" rel="noopener">Shop</a>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<a class="floating-shop" href="https://play.google.com/store/apps/details?id=com.bytefixer.ridefixer" target="_blank" rel="noopener">Get RideFixer App</a>
+</body>
+</html>
