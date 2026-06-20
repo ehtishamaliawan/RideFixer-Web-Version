@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RideFixer | AI-Powered E-Bike Fleet Diagnostics</title>
+    <meta name="description" content="Enterprise-grade AI diagnostic engine and secure fleet management platform for e-bike mechanics and commercial delivery fleets.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span class="accent-electric">Ride</span>Fixer.
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#technology">Technology</a>
+            <button class="btn btn-secondary login-btn">Mechanic Login</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="badge">MVP 1.0 // GraphRAG Powered</div>
+            <h1>The AI Diagnostic Engine for <span class="accent-electric">E-Bike Fleets</span></h1>
+            <p class="subheadline">
+                Eliminate generic error codes. Reduce fleet downtime by 60%. RideFixer guides mechanics through complex UART controller and wiring faults using intelligent, component-level fault isolation.
+            </p>
+            <div class="cta-group">
+                <button class="btn btn-primary demo-btn">Book a Fleet Demo</button>
+                <button class="btn btn-outline login-btn">Mechanic Login</button>
+            </div>
+        </div>
+        <div class="glow-orb"></div>
+    </header>
+
+    <section class="problem-solution" id="solution">
+        <div class="container">
+            <div class="split-layout">
+                <div class="card problem">
+                    <span class="card-label error">The Chaos</span>
+                    <h3>Generic Error Codes</h3>
+                    <p>Standard manuals provide vague "Error 30" codes, leading mechanics on a wild goose chase with multimeters, wasting hours on trial-and-error part swapping.</p>
+                </div>
+                <div class="card solution">
+                    <span class="card-label success">The RideFixer Solution</span>
+                    <h3>AI-Guided Precision</h3>
+                    <p>Our engine correlates symptoms with proprietary schematic data, guiding mechanics step-by-step through precise multimeter testing points to isolate the exact failing wire or mosfet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Enterprise-Grade Infrastructure</h2>
+            <div class="grid-3">
+                <div class="feature-card">
+                    <div class="icon-box">🧠</div>
+                    <h3>Conversational Diagnostics</h3>
+                    <p>An AI assistant trained exclusively on proprietary e-bike manuals, schematics, and thousands of resolved UART fault logs. Ask questions, get precise testing steps.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">📹</div>
+                    <h3>Live Support Marketplace</h3>
+                    <p>When AI needs a human touch, instantly escalate to a master mechanic via secure video link. Sub-contractors get unblocked; experts monetize their downtime.</p>
+                </div>
+                <div class="feature-card border-accent">
+                    <div class="icon-box">🛡️</div>
+                    <h3>Secure Fleet Dashboard</h3>
+                    <p>End-to-end encrypted fleet health monitoring built on zero-trust architecture. Maintain absolute data integrity over your operational assets, maintenance logs, and mechanic performance metrics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="technology" id="technology">
+        <div class="container">
+            <h2 class="section-title">Powered by <span class="accent-green">GraphRAG</span> Architecture</h2>
+            <p class="tech-sub">Traditional vector search fails at complex electrical routing. RideFixer maps electrical components as relationships, isolating faults faster than humanly possible.</p>
+            
+            <div class="graph-visualizer">
+                <div class="node node-core">Controller (Hub)</div>
+                <div class="node-connections">
+                    <div class="edge-path">
+                        <div class="node node-branch">PAS Sensor</div>
+                        <div class="fault-indicator">Signal Drop</div>
+                    </div>
+                    <div class="edge-path">
+                        <div class="node node-branch">Throttle (Hall)</div>
+                        <div class="fault-indicator success">Nominal 5V</div>
+                    </div>
+                    <div class="edge-path">
+                        <div class="node node-branch">Motor Phase</div>
+                        <div class="fault-indicator error">Short to Ground</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span class="accent-electric">Ride</span>Fixer.
+                <p>Enterprise SaaS for independent mechanics and delivery fleets.</p>
+            </div>
+            <div class="footer-links">
+                <p><strong>ByteFixer</strong></p>
+                <p>123 Tech Hub Way, London, UK</p>
+                <p>Contact: founder@ridefixer.app</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RideFixer Ltd. All rights reserved. | <a href="#" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: var(--text-muted); text-decoration: none;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
